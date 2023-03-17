@@ -1,0 +1,5 @@
+node_modules
+downloads
+cypress\e2e\practice.cy.js
+cypress\e2e\spec.cy.js
+cypress\e2e\example.cy.js

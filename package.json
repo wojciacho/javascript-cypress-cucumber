@@ -1,0 +1,19 @@
+{
+  "name": "javascript-cypress-tests",
+  "version": "1.0.0",
+  "description": "E2E Tests",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Wojciech",
+  "license": "ISC",
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.4",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "cucumber-json-report-formatter": "^0.1.4"
+  },
+  "devDependencies": {
+    "cypress": "^12.8.1"
+  }
+}
