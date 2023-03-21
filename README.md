@@ -4,3 +4,4 @@
  Below are websites which I'm using for practice automation testing:
 
 * https://rahulshettyacademy.com/angularpractice,
+* https://www.saucedemo.com
