@@ -27,7 +27,27 @@ Cypress.Commands.add("pickLocation", (country) => {
       cy.wrap($element).click();
     }
   });
-})
+});
+
+Cypress.Commands.add("sauceDemoLogin", (username, password) => {
+  cy.get("#user-name").type(username);
+  cy.get("#password").type(password);
+  cy.get("#user-name").should("have.value", username);
+  cy.get("#password").should("have.value", password);
+  cy.get("#login-button").click();
+});
+
+Cypress.Commands.add("placingAnOrder", (name, lastname, zipcode) => {
+  cy.get("#checkout").click();
+  cy.get("#first-name").type(name);
+  cy.get("#last-name").type(lastname);
+  cy.get("#postal-code").type(zipcode);
+  cy.get("#continue").click();
+  cy.url().should("include", "checkout-step-two.html");
+  cy.get("#finish").click();
+  cy.url().should("include", "checkout-complete.html");
+  cy.get(".complete-header").should("have.text", "Thank you for your order!");
+});
 
 //
 // -- This is a child command --
