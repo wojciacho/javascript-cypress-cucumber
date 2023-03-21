@@ -1,2 +1,4 @@
 node_modules
 downloads
+cypress/e2e/example.cy.js
+cypress/e2e/practice.cy.js
