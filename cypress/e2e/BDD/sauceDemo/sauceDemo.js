@@ -45,3 +45,29 @@ Then("Select jacket and complete a purchase", () => {
   cy.get(".inventory_item_name").contains("Sauce Labs Fleece Jacket");
   cy.placingAnOrder("Wojciech", "Wojciechowski", "12345");
 });
+
+Then("Add two products to cart", () => {
+  cy.get("#add-to-cart-sauce-labs-backpack").click();
+  cy.get("#add-to-cart-sauce-labs-bike-light").click();
+})
+
+Then("Remove products from cart with assertion", () => {
+  sauceDemo.cartButton().click();
+  cy.url().should("include", "cart.html");
+  cy.get("div:nth-child(3) > div.cart_item_label").should("contain", "Sauce Labs Backpack")
+  cy.get("div:nth-child(4) > div.cart_item_label").should("contain", "Sauce Labs Bike Light")
+  cy.get("#remove-sauce-labs-backpack").click()
+  cy.get("#remove-sauce-labs-bike-light").click()
+  cy.get(".cart_list").should("not.contain", "Sauce Labs Backpack")
+  cy.get(".cart_list").should("not.contain", "Sauce Labs Bike Light")
+})
+
+Then("Remove products from home page with assertion", () => {
+  cy.get(".shopping_cart_badge").should("have.text", "2")
+  cy.get("#remove-sauce-labs-backpack").click()
+  cy.get("#remove-sauce-labs-bike-light").click()
+  sauceDemo.cartButton().click();
+  cy.url().should("include", "cart.html");
+  cy.get(".cart_list").should("not.contain", "Sauce Labs Backpack")
+  cy.get(".cart_list").should("not.contain", "Sauce Labs Bike Light")
+})
