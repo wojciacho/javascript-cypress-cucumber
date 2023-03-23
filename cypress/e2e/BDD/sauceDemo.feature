@@ -31,3 +31,10 @@ When Filling login details
 And Add two products to cart
 And Remove products from home page with assertion
 Then Logout and assert home page
+
+Scenario: sauceDemo - filtering options
+Given Opening saucedemo page
+When Filling login details
+And Select price low to high and assert
+And Select price high to low and assert
+Then Logout and assert home page

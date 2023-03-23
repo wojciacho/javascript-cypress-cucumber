@@ -26,6 +26,10 @@ class sauceDemo {
   cartButton() {
     return cy.get(".shopping_cart_link");
   }
+
+  filterButton() {
+    return cy.get(".product_sort_container")
+  }
 }
 
 export default new sauceDemo();
