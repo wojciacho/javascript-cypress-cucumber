@@ -22,6 +22,18 @@ class computerDatabase {
     companyEl() {
         return cy.get("#company")
     }
+
+    introducedEl() {
+        return cy.get("#introduced")
+    }
+
+    discontinuedEl() {
+        return cy.get("#discontinued")
+    }
+
+    nameEl() {
+        return cy.get("#name")
+    }
 }
 
 export default new computerDatabase();

@@ -38,8 +38,8 @@ When("Type Ace and filter", () => {
 When("Click ACE computer and change computer name", () => {
   cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click()
   cy.url().should("contain", "/computers/381")
-  cy.get("#name").clear()
-  cy.get("#name").type("Computer #1")
+  computerDatabase.nameEl().clear()
+  computerDatabase.nameEl().type("Computer #1")
   computerDatabase.saveButton().click()
   cy.url().should("contain", "/computers")
   computerDatabase.warningMessage().should("contain", "Done !  Computer Computer #1 has been updated")
@@ -48,8 +48,8 @@ When("Click ACE computer and change computer name", () => {
 When("Click ACE computer and add date", () => {
   cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click()
   cy.url().should("contain", "/computers/381")
-  cy.get("#introduced").type("1999-01-01")
-  cy.get("#discontinued").type("2006-01-01")
+  computerDatabase.introducedEl().type("1999-01-01")
+  computerDatabase.discontinuedEl().type("2006-01-01")
   computerDatabase.saveButton().click()
   cy.url().should("contain", "/computers")
   computerDatabase.warningMessage().should("contain", "Done !  Computer ACE has been updated")
@@ -58,11 +58,22 @@ When("Click ACE computer and add date", () => {
 When("Click ACE computer and add apple company, date", () => {
   cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click()
   cy.url().should("contain", "/computers/381")
-  cy.get("#introduced").type("1999-01-01")
-  cy.get("#discontinued").type("2006-01-01")
+  computerDatabase.introducedEl().type("1999-01-01")
+  computerDatabase.discontinuedEl().type("2006-01-01")
   computerDatabase.companyEl().select("Apple Inc.")
   computerDatabase.saveButton().click()
   computerDatabase.warningMessage().should("contain", "Done !  Computer ACE has been updated")
+})
+
+When("Add new computer to base", () => {
+  cy.get("#add").click()
+  cy.url().should("include", "/computers/new")
+  computerDatabase.nameEl().type("Phoenix")
+  computerDatabase.introducedEl().type("2022-03-30")
+  computerDatabase.discontinuedEl().type("2023-06-06")
+  computerDatabase.companyEl().select("Sony")
+  computerDatabase.saveButton().click()
+  computerDatabase.warningMessage().should("contain", "Done !  Computer Phoenix has been created")
 })
 
 Then("Go to home page", () => {

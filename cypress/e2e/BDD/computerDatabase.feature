@@ -27,3 +27,9 @@ When Page loads check assets when page loads
 And Type Ace and filter
 And Click ACE computer and add apple company, date
 Then Go to home page
+
+Scenario: computerDatabase - adding new computer
+Given Opening computerDatabase page
+When Page loads check assets when page loads
+And Add new computer to base
+Then Go to home page
