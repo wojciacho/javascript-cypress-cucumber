@@ -5,4 +5,5 @@
 
 * https://rahulshettyacademy.com/angularpractice,
 * https://www.saucedemo.com,
-* https://demo.nopcommerce.com
+* https://demo.nopcommerce.com,
+* https://computer-database.gatling.io/computers
