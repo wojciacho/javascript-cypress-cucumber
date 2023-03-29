@@ -36,45 +36,71 @@ When("Type Ace and filter", () => {
 });
 
 When("Click ACE computer and change computer name", () => {
-  cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click()
-  cy.url().should("contain", "/computers/381")
-  computerDatabase.nameEl().clear()
-  computerDatabase.nameEl().type("Computer #1")
-  computerDatabase.saveButton().click()
-  cy.url().should("contain", "/computers")
-  computerDatabase.warningMessage().should("contain", "Done !  Computer Computer #1 has been updated")
-})
+  cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click();
+  cy.url().should("contain", "/computers/381");
+  computerDatabase.nameEl().clear();
+  computerDatabase.nameEl().type("Computer #1");
+  computerDatabase.saveButton().click();
+  cy.url().should("contain", "/computers");
+  computerDatabase
+    .warningMessage()
+    .should("contain", "Done !  Computer Computer #1 has been updated");
+});
 
 When("Click ACE computer and add date", () => {
-  cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click()
-  cy.url().should("contain", "/computers/381")
-  computerDatabase.introducedEl().type("1999-01-01")
-  computerDatabase.discontinuedEl().type("2006-01-01")
-  computerDatabase.saveButton().click()
-  cy.url().should("contain", "/computers")
-  computerDatabase.warningMessage().should("contain", "Done !  Computer ACE has been updated")
-})
+  cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click();
+  cy.url().should("contain", "/computers/381");
+  computerDatabase.introducedEl().type("1999-01-01");
+  computerDatabase.discontinuedEl().type("2006-01-01");
+  computerDatabase.saveButton().click();
+  cy.url().should("contain", "/computers");
+  computerDatabase
+    .warningMessage()
+    .should("contain", "Done !  Computer ACE has been updated");
+});
 
 When("Click ACE computer and add apple company, date", () => {
-  cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click()
-  cy.url().should("contain", "/computers/381")
-  computerDatabase.introducedEl().type("1999-01-01")
-  computerDatabase.discontinuedEl().type("2006-01-01")
-  computerDatabase.companyEl().select("Apple Inc.")
-  computerDatabase.saveButton().click()
-  computerDatabase.warningMessage().should("contain", "Done !  Computer ACE has been updated")
-})
+  cy.get("tbody > tr:nth-child(1) > td:nth-child(1) > a").click();
+  cy.url().should("contain", "/computers/381");
+  computerDatabase.introducedEl().type("1999-01-01");
+  computerDatabase.discontinuedEl().type("2006-01-01");
+  computerDatabase.companyEl().select("Apple Inc.");
+  computerDatabase.saveButton().click();
+  computerDatabase
+    .warningMessage()
+    .should("contain", "Done !  Computer ACE has been updated");
+});
 
 When("Add new computer to base", () => {
-  cy.get("#add").click()
-  cy.url().should("include", "/computers/new")
-  computerDatabase.nameEl().type("Phoenix")
-  computerDatabase.introducedEl().type("2022-03-30")
-  computerDatabase.discontinuedEl().type("2023-06-06")
-  computerDatabase.companyEl().select("Sony")
-  computerDatabase.saveButton().click()
-  computerDatabase.warningMessage().should("contain", "Done !  Computer Phoenix has been created")
-})
+  cy.get("#add").click();
+  cy.url().should("include", "/computers/new");
+  computerDatabase.nameEl().type("Phoenix");
+  computerDatabase.introducedEl().type("2022-03-30");
+  computerDatabase.discontinuedEl().type("2023-06-06");
+  computerDatabase.companyEl().select("Sony");
+  computerDatabase.saveButton().click();
+  computerDatabase
+    .warningMessage()
+    .should("contain", "Done !  Computer Phoenix has been created");
+});
+
+When("Add new computer to base with invalid date", () => {
+  cy.get("#add").click();
+  cy.url().should("include", "/computers/new");
+  computerDatabase.nameEl().type("Phoenix");
+  computerDatabase.introducedEl().type("1");
+  computerDatabase.discontinuedEl().type("1");
+  computerDatabase.companyEl().select("Sony");
+  computerDatabase.saveButton().click();
+  cy.get("div:nth-child(2) > div > span").should(
+    "contain",
+    "Failed to decode date"
+  );
+  cy.get("div:nth-child(3) > div > span").should(
+    "contain",
+    "Failed to decode date"
+  );
+});
 
 Then("Go to home page", () => {
   cy.get(".topbar > h1 > a").click();
