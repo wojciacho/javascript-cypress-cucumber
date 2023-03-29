@@ -42,6 +42,14 @@ When("Go to gift cards page and assert", () => {
     .and("contain", "$100 Physical Gift Card");
 });
 
+When("Go to books page and assert", () => {
+  nopCommerce.booksMenu().click()
+  cy.url().should("include", "/books")
+  cy.get(" div.products-wrapper > div > div > div:nth-child(1) > div").should("be.visible").and("contain", "Fahrenheit 451 by Ray Bradbury")
+  cy.get(" div.products-wrapper > div > div > div:nth-child(2) > div").should("be.visible").and("contain", "First Prize Pies")
+  cy.get(" div.products-wrapper > div > div > div:nth-child(3) > div").should("be.visible").and("contain", "Pride and Prejudice")
+})
+
 Then("Go to home page", () => {
   nopCommerce.logoElement().click();
   cy.url().should("include", "https://demo.nopcommerce.com");

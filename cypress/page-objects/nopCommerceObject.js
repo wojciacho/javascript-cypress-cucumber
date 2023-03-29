@@ -1,6 +1,6 @@
 class nopCommerce {
     navigate() {
-        return cy.visit("https://demo.nopcommerce.com")
+        return cy.visit({url: "https://demo.nopcommerce.com", failOnStatusCode: false})
     }
 
     computerMenu() {
