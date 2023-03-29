@@ -5,3 +5,25 @@ Given Opening computerDatabase page
 When Page loads check assets when page loads
 And Type Ace and filter
 Then Go to home page
+
+Scenario: computerDatabase - changing computer name
+Given Opening computerDatabase page
+When Page loads check assets when page loads
+And Type Ace and filter
+And Click ACE computer and change computer name
+Then Go to home page
+
+
+Scenario: computerDatabase - adding introduced and discontinued date
+Given Opening computerDatabase page
+When Page loads check assets when page loads
+And Type Ace and filter
+And Click ACE computer and add date
+Then Go to home page
+
+Scenario: computerDatabase - adding apple company  introduced and discontinued date 
+Given Opening computerDatabase page
+When Page loads check assets when page loads
+And Type Ace and filter
+And Click ACE computer and add apple company, date
+Then Go to home page

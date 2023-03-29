@@ -8,7 +8,19 @@ class computerDatabase {
     }
 
     submitButton() {
-        return  cy.get("#searchsubmit")
+        return cy.get("#searchsubmit")
+    }
+
+    saveButton() {
+        return cy.get(".primary")
+    }
+
+    warningMessage() {
+        return cy.get(".warning")
+    }
+
+    companyEl() {
+        return cy.get("#company")
     }
 }
 
