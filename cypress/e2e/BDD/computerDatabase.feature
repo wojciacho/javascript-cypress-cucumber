@@ -39,3 +39,10 @@ Given Opening computerDatabase page
 When Page loads check assets when page loads
 And Add new computer to base with invalid date
 Then Go to home page
+
+
+Scenario: computerDatabase - check the test behavior without putting computer name
+Given Opening computerDatabase page
+When Page loads check assets when page loads
+And Add new computer to base without name
+Then Go to home page

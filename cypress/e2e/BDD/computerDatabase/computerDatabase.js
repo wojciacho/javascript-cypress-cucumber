@@ -102,6 +102,19 @@ When("Add new computer to base with invalid date", () => {
   );
 });
 
+When("Add new computer to base without name", () => {
+  cy.get("#add").click();
+  cy.url().should("include", "/computers/new");
+  computerDatabase.introducedEl().type("2022-03-30");
+  computerDatabase.discontinuedEl().type("2023-06-06");
+  computerDatabase.companyEl().select("Sony");
+  computerDatabase.saveButton().click();
+  cy.get("div:nth-child(1) > div > span").should(
+    "contain",
+    "Failed to refine type"
+  );
+});
+
 Then("Go to home page", () => {
   cy.get(".topbar > h1 > a").click();
   cy.get("#main > h1")
