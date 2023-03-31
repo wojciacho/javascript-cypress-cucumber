@@ -43,6 +43,45 @@ When("Go to women page and assert", () => {
   );
 });
 
+When("Page loads check hot sellers section", () => {
+  cy.get("div > div > ol > li:nth-child(1) > div").should("be.visible");
+  cy.get("div > div > ol > li:nth-child(2) > div").should("be.visible");
+  cy.get("div > div > ol > li:nth-child(3) > div").should("be.visible");
+  cy.get("div > div > ol > li:nth-child(4) > div").should("be.visible");
+  cy.get("div > div > ol > li:nth-child(5) > div").should("be.visible");
+});
+
+When("Add procuct to cart and check summary", () => {
+  Cypress.on("uncaught:exception", (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false;
+  });
+  cy.clearLocalStorage();
+  cy.get("div > div > ol > li:nth-child(2) > div > div > strong > a")
+    .should("contain", "Breathe-Easy Tank")
+    .click();
+  cy.url().should("include", "/breathe-easy-tank.html");
+  cy.get("#product-price-1812 > .price").should("contain", "$34.00");
+  cy.get("#option-label-size-143-item-167").click();
+  cy.get("#option-label-color-93-item-59").click();
+  magentoStore.qtyEl().clear();
+  magentoStore.qtyEl().type("2");
+  magentoStore.addToCartButton().click();
+  cy.get(
+    "#maincontent > div.page.messages > div:nth-child(2) > div > div > div"
+  ).should("contain", "You added Breathe-Easy Tank to your shopping cart.");
+  magentoStore.cartEl().click();
+  cy.get("#ui-id-1").should("be.visible");
+  cy.get(
+    "#minicart-content-wrapper > div.block-content > div:nth-child(7) > div > a > span"
+  ).click();
+  cy.url().should("include", "checkout/cart/");
+  cy.get("#shopping-cart-table").should("be.visible");
+  cy.get('label > input[type="number"]').should("have.value", "2");
+  cy.get(".action-delete").click();
+});
+
 Then("Go to home page", () => {
   cy.get(".logo").click();
   cy.url().should("contain", "magento.softwaretestingboard.com");
