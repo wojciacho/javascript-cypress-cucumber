@@ -14,6 +14,22 @@ class magentoStore {
     qtyEl() {
         return cy.get("#qty")
     }
+
+    loginEl() {
+        return  cy.get("body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.authorization-link > a")
+    }
+
+    emailEl() {
+        return cy.get("#email")
+    }
+
+    passwordEl() {
+        return cy.get("#pass")
+    }
+
+    loginButton() {
+        return cy.get("#send2")
+    }
 }
 
 export default new magentoStore ();

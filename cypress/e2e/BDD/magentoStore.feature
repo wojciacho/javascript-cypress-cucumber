@@ -17,3 +17,9 @@ Given Opening magentoSoftware page
 When Page loads check hot sellers section
 And Add procuct to cart and check summary
 Then Go to home page
+
+Scenario: magentoSoftware - check customer login without registering
+Given Opening magentoSoftware page
+When Page loads check navbar
+And Login into store and check error message
+Then Go to home page

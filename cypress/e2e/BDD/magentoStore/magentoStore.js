@@ -82,6 +82,20 @@ When("Add procuct to cart and check summary", () => {
   cy.get(".action-delete").click();
 });
 
+When("Login into store and check error message", () => {
+  magentoStore.loginEl().click();
+  cy.url().should("include", "/customer/account/login");
+  magentoStore.emailEl().type("asd@asd.com");
+  magentoStore.passwordEl().type("WOJTAS12345!");
+  magentoStore.loginButton().click();
+  cy.get(
+    "#maincontent > div.page.messages > div:nth-child(2) > div > div > div"
+  ).should(
+    "contain",
+    "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later."
+  );
+});
+
 Then("Go to home page", () => {
   cy.get(".logo").click();
   cy.url().should("contain", "magento.softwaretestingboard.com");
