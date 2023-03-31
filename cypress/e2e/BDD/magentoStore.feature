@@ -23,3 +23,9 @@ Given Opening magentoSoftware page
 When Page loads check navbar
 And Login into store and check error message
 Then Go to home page
+
+Scenario: magentoSoftware - check footer
+Given Opening magentoSoftware page
+When Check footer links
+Then Go to home page
+

@@ -96,6 +96,38 @@ When("Login into store and check error message", () => {
   );
 });
 
+When("Check footer links", () => {
+  cy.get(".page-footer");
+  cy.get("div.links > div > ul > li:nth-child(1) > a").should(
+    "contain",
+    "About us"
+  );
+  cy.get("div.links > div > ul > li:nth-child(2) > a").should(
+    "contain",
+    "Customer Service"
+  );
+  cy.get("footer > div > ul > li:nth-child(1) > a").should(
+    "contain",
+    "Search Terms"
+  );
+  cy.get("footer > div > ul > li:nth-child(2) > a").should(
+    "contain",
+    "Privacy and Cookie Policy"
+  );
+  cy.get("footer > div > ul > li:nth-child(3) > a").should(
+    "contain",
+    "Advanced Search"
+  );
+  cy.get("footer > div > ul > li:nth-child(4) > a").should(
+    "contain",
+    "Orders and Returns"
+  );
+  cy.get("footer > div > ul > li:nth-child(5) > a").should(
+    "contain",
+    "Contact Us"
+  );
+});
+
 Then("Go to home page", () => {
   cy.get(".logo").click();
   cy.url().should("contain", "magento.softwaretestingboard.com");
