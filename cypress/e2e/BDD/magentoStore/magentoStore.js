@@ -139,6 +139,17 @@ When("Click Tops category and assert", () => {
   cy.get("#page-title-heading > span").should("contain", "Tops");
 });
 
+When("Click Bottoms category and assert", () => {
+  magentoStore.menEl().click();
+  cy.url().should("include", "/men.html");
+  cy.get("#narrow-by-list2 > dd > ol > li:nth-child(2) > a")
+    .should("be.visible")
+    .and("contain", "Bottoms");
+  cy.get("#narrow-by-list2 > dd > ol > li:nth-child(2) > a").click();
+  cy.url().should("contain", "/men/bottoms-men.html");
+  cy.get("#page-title-heading > span").should("contain", "Bottoms");
+});
+
 Then("Go to home page", () => {
   cy.get(".logo").click();
   cy.url().should("contain", "magento.softwaretestingboard.com");

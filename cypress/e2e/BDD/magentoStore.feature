@@ -26,11 +26,19 @@ Then Go to home page
 
 Scenario: magentoSoftware - check footer
 Given Opening magentoSoftware page
+When Page loads check navbar
 When Check footer links
 Then Go to home page
 
 Scenario: magentoSoftware - check tops category from men page
 Given Opening magentoSoftware page
+When Page loads check navbar
 When Click Tops category and assert
+Then Go to home page
+
+Scenario: magentoSoftware - check bottoms category from men page
+Given Opening magentoSoftware page
+When Page loads check navbar
+When Click Bottoms category and assert
 Then Go to home page
 
