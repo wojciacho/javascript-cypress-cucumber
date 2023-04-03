@@ -30,6 +30,10 @@ class magentoStore {
     loginButton() {
         return cy.get("#send2")
     }
+
+    menEl() {
+        return  cy.get("#ui-id-5 > span:nth-child(2)")
+    }
 }
 
 export default new magentoStore ();

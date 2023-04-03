@@ -29,3 +29,8 @@ Given Opening magentoSoftware page
 When Check footer links
 Then Go to home page
 
+Scenario: magentoSoftware - check tops category from men page
+Given Opening magentoSoftware page
+When Click Tops category and assert
+Then Go to home page
+

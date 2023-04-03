@@ -128,6 +128,17 @@ When("Check footer links", () => {
   );
 });
 
+When("Click Tops category and assert", () => {
+  magentoStore.menEl().click();
+  cy.url().should("include", "/men.html");
+  cy.get("#narrow-by-list2 > dd > ol > li:nth-child(1) > a")
+    .should("be.visible")
+    .and("contain", "Tops");
+  cy.get("#narrow-by-list2 > dd > ol > li:nth-child(1) > a").click();
+  cy.url().should("contain", "/men/tops-men.html");
+  cy.get("#page-title-heading > span").should("contain", "Tops");
+});
+
 Then("Go to home page", () => {
   cy.get(".logo").click();
   cy.url().should("contain", "magento.softwaretestingboard.com");
