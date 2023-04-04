@@ -7,4 +7,5 @@
 * https://www.saucedemo.com,
 * https://demo.nopcommerce.com,
 * https://computer-database.gatling.io/computers,
-* https://magento.softwaretestingboard.com
+* https://magento.softwaretestingboard.com,
+* https://automationexercise.com
