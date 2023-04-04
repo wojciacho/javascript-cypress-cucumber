@@ -19,6 +19,18 @@ class automationExercise {
     return cy.get("button[type=submit]:nth-child(5)");
   }
 
+  loginEmailEl() {
+    return cy.get("div.col-sm-4.col-sm-offset-1 > div > form > input[type=email]:nth-child(2)")
+  }
+
+  loginPasswordEl() {
+    return cy.get("input[type=password]:nth-child(3)")
+  }
+
+  loginButton() {
+    return cy.get("button[type=submit]:nth-child(4)")
+  }
+
   createAccountButton() {
     return cy.get("#form > div > div > div > div > form > button");
   }

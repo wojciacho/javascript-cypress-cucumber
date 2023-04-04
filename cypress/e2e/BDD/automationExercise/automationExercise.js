@@ -44,6 +44,16 @@ When("Register user", () => {
   cy.get("ul > li:nth-child(10) > a").should("be.visible");
 });
 
+Then("Login user correctly", () => {
+  automationExercise.signUpEl().click();
+  cy.get(".login-form > h2").should("be.visible");
+  automationExercise.loginEmailEl().type("example@example1.com");
+  automationExercise.loginPasswordEl().type("wojtas");
+  automationExercise.loginButton().click();
+  cy.get("ul > li:nth-child(10) > a").should("be.visible");
+  cy.url().should("include", "automationexercise.com");
+});
+
 Then("Delete user", () => {
   automationExercise.deleteAccountEl().click();
   cy.get("#form > div > div > div > h2 > b")
