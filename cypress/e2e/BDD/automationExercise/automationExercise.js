@@ -65,6 +65,13 @@ Then("Login user incorrectly", () => {
     .and("contain", "Your email or password is incorrect!");
 });
 
+Then("Logout user", () => {
+  automationExercise.logoutButton().click();
+  cy.url().should("include", "login");
+  cy.get(".login-form").should("be.visible");
+  cy.get(".signup-form").should("be.visible");
+});
+
 Then("Delete user", () => {
   automationExercise.deleteAccountEl().click();
   cy.get("#form > div > div > div > h2 > b")

@@ -20,15 +20,17 @@ class automationExercise {
   }
 
   loginEmailEl() {
-    return cy.get("div.col-sm-4.col-sm-offset-1 > div > form > input[type=email]:nth-child(2)")
+    return cy.get(
+      "div.col-sm-4.col-sm-offset-1 > div > form > input[type=email]:nth-child(2)"
+    );
   }
 
   loginPasswordEl() {
-    return cy.get("input[type=password]:nth-child(3)")
+    return cy.get("input[type=password]:nth-child(3)");
   }
 
   loginButton() {
-    return cy.get("button[type=submit]:nth-child(4)")
+    return cy.get("button[type=submit]:nth-child(4)");
   }
 
   createAccountButton() {
@@ -41,6 +43,10 @@ class automationExercise {
 
   deleteAccountEl() {
     return cy.get(" div.col-sm-8 > div > ul > li:nth-child(5) > a");
+  }
+
+  logoutButton() {
+    return cy.get("div.col-sm-8 > div > ul > li:nth-child(4) > a");
   }
 }
 
