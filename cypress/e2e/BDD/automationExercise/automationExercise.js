@@ -54,6 +54,17 @@ Then("Login user correctly", () => {
   cy.url().should("include", "automationexercise.com");
 });
 
+Then("Login user incorrectly", () => {
+  automationExercise.signUpEl().click();
+  cy.get(".login-form > h2").should("be.visible");
+  automationExercise.loginEmailEl().type("example@example2.com");
+  automationExercise.loginPasswordEl().type("wojtas2");
+  automationExercise.loginButton().click();
+  cy.get("div.col-sm-4.col-sm-offset-1 > div > form > p")
+    .should("be.visible")
+    .and("contain", "Your email or password is incorrect!");
+});
+
 Then("Delete user", () => {
   automationExercise.deleteAccountEl().click();
   cy.get("#form > div > div > div > h2 > b")
