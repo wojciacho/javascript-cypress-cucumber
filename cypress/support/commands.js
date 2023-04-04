@@ -49,6 +49,22 @@ Cypress.Commands.add("placingAnOrder", (name, lastname, zipcode) => {
   cy.get(".complete-header").should("have.text", "Thank you for your order!");
 });
 
+Cypress.Commands.add("signUpDetails", (password, firstName, lastName, company, address, state, city, zipCode, number) => {
+  cy.get("#password").type(password)
+  cy.get("#days").select("6")
+  cy.get("#months").select("6")
+  cy.get("#years").select("2000")
+  cy.get("#first_name").type(firstName)
+  cy.get("#last_name").type(lastName)
+  cy.get("#company").type(company)
+  cy.get("#address1").type(address)
+  cy.get("#country").select("United States")
+  cy.get("#state").type(state)
+  cy.get("#city").type(city)
+  cy.get("#zipcode").type(zipCode)
+  cy.get("#mobile_number").type(number)
+})
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
