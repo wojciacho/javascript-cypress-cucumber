@@ -27,4 +27,7 @@ Given Open automationExercise page
 When Verify home page
 Then Register user with existing email
 
-
+Scenario: automationExercise - contact us form
+Given Open automationExercise page
+When Verify home page
+Then Validate contact us form

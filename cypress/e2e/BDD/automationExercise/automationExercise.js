@@ -55,6 +55,19 @@ Then("Register user with existing email", () => {
     .and("contain", "Email Address already exist!");
 });
 
+Then("Validate contact us form", () => {
+  automationExercise.contactUsEl().click();
+  cy.get(".contact-form > h2").should("be.visible");
+  automationExercise.contactUsName().type("Wojciech");
+  automationExercise.contactUsEmail().type("example@example1.com");
+  automationExercise.contactUsSubject().type("test");
+  automationExercise.contactUsMessage().type("test 123");
+  automationExercise.contactUsSubmitButton().click();
+  cy.get(".contact-form > .alert-success").should("be.visible");
+  cy.get(".btn-success").click();
+  cy.url().should("include", "automationexercise.com");
+});
+
 Then("Login user correctly", () => {
   automationExercise.signUpEl().click();
   cy.get(".login-form > h2").should("be.visible");
