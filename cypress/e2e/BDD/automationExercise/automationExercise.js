@@ -44,6 +44,17 @@ When("Register user", () => {
   cy.get("ul > li:nth-child(10) > a").should("be.visible");
 });
 
+Then("Register user with existing email", () => {
+  automationExercise.signUpEl().click();
+  cy.get(".signup-form > h2").should("be.visible");
+  automationExercise.signUpNameEl().type("Wojciech");
+  automationExercise.signUpEmailEl().type("example@example1.com");
+  automationExercise.signUpButton().click();
+  cy.get("div:nth-child(3) > div > form > p")
+    .should("be.visible")
+    .and("contain", "Email Address already exist!");
+});
+
 Then("Login user correctly", () => {
   automationExercise.signUpEl().click();
   cy.get(".login-form > h2").should("be.visible");

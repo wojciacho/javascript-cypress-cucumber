@@ -22,3 +22,9 @@ When Verify home page
 And Login user correctly
 Then Logout user
 
+Scenario: automationExercise - register user with existing email
+Given Open automationExercise page
+When Verify home page
+Then Register user with existing email
+
+
