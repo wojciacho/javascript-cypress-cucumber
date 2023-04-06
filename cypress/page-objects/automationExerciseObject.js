@@ -50,31 +50,35 @@ class automationExercise {
   }
 
   contactUsEl() {
-    return cy.get("div.col-sm-8 > div > ul > li:nth-child(8) > a")
+    return cy.get("div.col-sm-8 > div > ul > li:nth-child(8) > a");
   }
 
   contactUsName() {
-    return cy.get("#contact-us-form > div:nth-child(2) > input")
+    return cy.get("#contact-us-form > div:nth-child(2) > input");
   }
 
   contactUsEmail() {
-    return cy.get("#contact-us-form > div:nth-child(3) > input")
+    return cy.get("#contact-us-form > div:nth-child(3) > input");
   }
 
   contactUsSubject() {
-    return cy.get("#contact-us-form > div:nth-child(4) > input")
+    return cy.get("#contact-us-form > div:nth-child(4) > input");
   }
 
   contactUsMessage() {
-    return cy.get("#message")
+    return cy.get("#message");
   }
 
   contactUsSubmitButton() {
-    return cy.get("#contact-us-form > div:nth-child(7) > input")
+    return cy.get("#contact-us-form > div:nth-child(7) > input");
   }
 
   productsEl() {
-    return cy.get("div.col-sm-8 > div > ul > li:nth-child(2) > a")
+    return cy.get("div.col-sm-8 > div > ul > li:nth-child(2) > a");
+  }
+
+  searchBoxEl() {
+    return cy.get("#search_product");
   }
 }
 

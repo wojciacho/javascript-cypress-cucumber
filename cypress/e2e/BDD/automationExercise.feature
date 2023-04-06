@@ -42,3 +42,9 @@ Given Open automationExercise page
 When Verify home page
 And Validate all products page
 Then Verify product detail page
+
+Scenario: automationExercise - search product
+Given Open automationExercise page
+When Verify home page
+And Validate all products page
+Then Search product

@@ -102,6 +102,13 @@ Then("Verify product detail page", () => {
   );
 });
 
+Then("Search product", () => {
+  automationExercise.searchBoxEl().type("Blue Top");
+  cy.get("#submit_search").click();
+  cy.get(".features_items > h2").should("be.visible");
+  cy.get(".single-products").should("be.visible");
+});
+
 Then("Login user correctly", () => {
   automationExercise.signUpEl().click();
   cy.get(".login-form > h2").should("be.visible");
