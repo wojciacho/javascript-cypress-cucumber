@@ -31,3 +31,8 @@ Scenario: automationExercise - contact us form
 Given Open automationExercise page
 When Verify home page
 Then Validate contact us form
+
+Scenario: automationExercise - verify test cases page
+Given Open automationExercise page
+When Verify home page
+Then Validate test cases page

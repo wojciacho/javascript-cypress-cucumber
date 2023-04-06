@@ -68,6 +68,11 @@ Then("Validate contact us form", () => {
   cy.url().should("include", "automationexercise.com");
 });
 
+Then("Validate test cases page", () => {
+  cy.get("div.col-sm-8 > div > ul > li:nth-child(5) > a").click();
+  cy.url().should("include", "/test_cases");
+});
+
 Then("Login user correctly", () => {
   automationExercise.signUpEl().click();
   cy.get(".login-form > h2").should("be.visible");
