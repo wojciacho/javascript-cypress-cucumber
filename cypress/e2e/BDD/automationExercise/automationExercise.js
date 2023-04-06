@@ -73,6 +73,35 @@ Then("Validate test cases page", () => {
   cy.url().should("include", "/test_cases");
 });
 
+When("Validate all products page", () => {
+  automationExercise.productsEl().click();
+  cy.url().should("include", "/products");
+  cy.get(".features_items").should("be.visible");
+});
+
+Then("Verify product detail page", () => {
+  cy.get(
+    "div.col-sm-9.padding-right > div > div:nth-child(3) > div > div.choose > ul > li > a"
+  ).click();
+  cy.url().should("include", "/product_details/");
+  cy.get(".product-information > h2").should("be.visible");
+  cy.get("div.product-details > div.col-sm-7 > div > p:nth-child(3)").should(
+    "be.visible"
+  );
+  cy.get("div.product-details > div.col-sm-7 > div > span > span").should(
+    "be.visible"
+  );
+  cy.get("div.product-details > div.col-sm-7 > div > p:nth-child(6)").should(
+    "be.visible"
+  );
+  cy.get("div.product-details > div.col-sm-7 > div > p:nth-child(7)").should(
+    "be.visible"
+  );
+  cy.get("div.product-details > div.col-sm-7 > div > p:nth-child(8)").should(
+    "be.visible"
+  );
+});
+
 Then("Login user correctly", () => {
   automationExercise.signUpEl().click();
   cy.get(".login-form > h2").should("be.visible");

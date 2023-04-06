@@ -72,6 +72,10 @@ class automationExercise {
   contactUsSubmitButton() {
     return cy.get("#contact-us-form > div:nth-child(7) > input")
   }
+
+  productsEl() {
+    return cy.get("div.col-sm-8 > div > ul > li:nth-child(2) > a")
+  }
 }
 
 export default new automationExercise();

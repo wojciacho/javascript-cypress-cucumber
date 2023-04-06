@@ -36,3 +36,9 @@ Scenario: automationExercise - verify test cases page
 Given Open automationExercise page
 When Verify home page
 Then Validate test cases page
+
+Scenario: automationExercise - verify all products and product detail page
+Given Open automationExercise page
+When Verify home page
+And Validate all products page
+Then Verify product detail page
