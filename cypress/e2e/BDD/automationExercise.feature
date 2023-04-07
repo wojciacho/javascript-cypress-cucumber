@@ -48,3 +48,8 @@ Given Open automationExercise page
 When Verify home page
 And Validate all products page
 Then Search product
+
+Scenario: automationExercise - verify subscription in home page
+Given Open automationExercise page
+When Verify home page
+Then Validate and subscribe newsletter
