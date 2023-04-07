@@ -80,6 +80,10 @@ class automationExercise {
   searchBoxEl() {
     return cy.get("#search_product");
   }
+
+  cartEl() {
+    return cy.get("div.col-sm-8 > div > ul > li:nth-child(3) > a")
+  }
 }
 
 export default new automationExercise();

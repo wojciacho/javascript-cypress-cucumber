@@ -102,6 +102,19 @@ Then("Verify product detail page", () => {
   );
 });
 
+Then("Validate and subscribe newsletter in cart", () => {
+  automationExercise.cartEl().click();
+  cy.url().should("contain", "/view_cart");
+  cy.get(".single-widget > h2")
+    .should("be.visible")
+    .and("contain", "Subscription");
+  cy.get("#susbscribe_email").type("example1@example.com");
+  cy.get("#subscribe").click({force:true});
+  cy.get("#success-subscribe > .alert-success")
+    .should("be.visible")
+    .and("contain", "You have been successfully subscribed!");
+});
+
 Then("Validate and subscribe newsletter", () => {
   cy.get(".single-widget > h2")
     .should("be.visible")
