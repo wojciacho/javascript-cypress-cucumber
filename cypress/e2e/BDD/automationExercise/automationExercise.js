@@ -109,7 +109,7 @@ Then("Validate and subscribe newsletter in cart", () => {
     .should("be.visible")
     .and("contain", "Subscription");
   cy.get("#susbscribe_email").type("example1@example.com");
-  cy.get("#subscribe").click({force:true});
+  cy.get("#subscribe").click({force: true});
   cy.get("#success-subscribe > .alert-success")
     .should("be.visible")
     .and("contain", "You have been successfully subscribed!");
@@ -167,4 +167,25 @@ Then("Delete user", () => {
     .should("be.visible")
     .and("contain", "Account Deleted!");
   automationExercise.continueButton().click();
+});
+
+Then("Add products to cart and verify", () => {
+  automationExercise.productsEl().click();
+  cy.get(
+    "div:nth-child(3) > div > div.single-products > div.product-overlay > div > a"
+  ).click({force: true});
+  automationExercise.closeModalEl().click();
+  cy.get(
+    "div:nth-child(4) > div > div.single-products > div.product-overlay > div > a"
+  ).click({force: true});
+  automationExercise.modalViewCartEl().click();
+  cy.get("#cart_info_table > tbody").should("have.length", "1");
+  cy.get("#product-1 > td.cart_description > h4 > a")
+    .should("be.visible")
+    .and("contain", "Blue Top");
+  cy.get("#product-2 > td.cart_description > h4 > a")
+    .should("be.visible")
+    .and("contain", "Men Tshirt");
+  cy.get("#product-1 > td.cart_total > p").should("contain", "Rs. 500");
+  cy.get("#product-2 > td.cart_total > p").should("contain", "Rs. 400");
 });

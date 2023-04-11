@@ -58,3 +58,8 @@ Scenario: automationExercise - verify subscription in cart page
 Given Open automationExercise page
 When Verify home page
 Then Validate and subscribe newsletter in cart
+
+Scenario: automationExercise - add products in cart
+Given Open automationExercise page
+When Verify home page
+Then Add products to cart and verify 

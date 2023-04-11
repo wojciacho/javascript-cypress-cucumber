@@ -84,6 +84,14 @@ class automationExercise {
   cartEl() {
     return cy.get("div.col-sm-8 > div > ul > li:nth-child(3) > a")
   }
+
+  closeModalEl() {
+    return cy.get(".close-modal")
+  }
+
+  modalViewCartEl() {
+    return cy.get(".modal-body > p:nth-child(2) > a")
+  }
 }
 
 export default new automationExercise();
