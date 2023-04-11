@@ -63,3 +63,9 @@ Scenario: automationExercise - add products in cart
 Given Open automationExercise page
 When Verify home page
 Then Add products to cart and verify 
+
+Scenario: automationExercise - verify product quantity in cart
+Given Open automationExercise page
+When Verify home page
+When Increase any product quantity to 4 and add to cart 
+Then Verify that product is displayed correctly

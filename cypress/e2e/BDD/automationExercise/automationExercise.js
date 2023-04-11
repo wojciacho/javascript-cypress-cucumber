@@ -188,4 +188,22 @@ Then("Add products to cart and verify", () => {
     .and("contain", "Men Tshirt");
   cy.get("#product-1 > td.cart_total > p").should("contain", "Rs. 500");
   cy.get("#product-2 > td.cart_total > p").should("contain", "Rs. 400");
+  cy.get("#product-1 >.cart_delete >  .cart_quantity_delete").click();
+  cy.get("#product-2 >.cart_delete >  .cart_quantity_delete").click();
+  cy.clearLocalStorage();
+});
+
+When("Increase any product quantity to 4 and add to cart", () => {
+  cy.get(
+    " div.features_items > div:nth-child(3) > div > div.choose > ul > li > a"
+  ).click();
+  cy.get("#quantity").clear();
+  cy.get("#quantity").type("4");
+  cy.get(".col-sm-7 > .product-information > span > button").click();
+});
+
+Then("Verify that product is displayed correctly", () => {
+  automationExercise.modalViewCartEl().click();
+  cy.get(".disabled").should("contain", "4");
+  cy.get("#product-1 >.cart_delete >  .cart_quantity_delete").click();
 });
