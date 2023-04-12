@@ -222,7 +222,7 @@ When("Register and click cart", () => {
   automationExercise.modalRegisterLoginEl().click();
   cy.get(".signup-form > h2").should("be.visible");
   automationExercise.signUpNameEl().type("Wojciech");
-  automationExercise.signUpEmailEl().type("wojciech@wojciech2.com");
+  automationExercise.signUpEmailEl().type("wojciech@wojciech3.com");
   automationExercise.signUpButton().click();
   cy.get("#uniform-id_gender1").click();
   cy.get(
