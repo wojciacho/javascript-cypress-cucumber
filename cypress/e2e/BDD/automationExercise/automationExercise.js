@@ -207,3 +207,81 @@ Then("Verify that product is displayed correctly", () => {
   cy.get(".disabled").should("contain", "4");
   cy.get("#product-1 >.cart_delete >  .cart_quantity_delete").click();
 });
+
+When("Add product to cart", () => {
+  cy.get(
+    "div.features_items > div:nth-child(3) > div > div.single-products > div.product-overlay > div > a"
+  ).click({force: true});
+  automationExercise.modalViewCartEl().click();
+  cy.url().should("include", "/view_cart");
+  cy.get("#product-1").should("be.visible");
+  automationExercise.checkoutButton().click();
+});
+
+When("Register and click cart", () => {
+  automationExercise.modalRegisterLoginEl().click();
+  cy.get(".signup-form > h2").should("be.visible");
+  automationExercise.signUpNameEl().type("Wojciech");
+  automationExercise.signUpEmailEl().type("wojciech@wojciech2.com");
+  automationExercise.signUpButton().click();
+  cy.get("#uniform-id_gender1").click();
+  cy.get(
+    "#form >.container > .row > .col-sm-4 > .login-form > .title > b"
+  ).should("be.visible");
+  cy.signUpDetails(
+    "WOJTAS12345!",
+    "Wojciech",
+    "Wojciechowski",
+    "Apple",
+    "Main Street",
+    "California",
+    "Los Angeles",
+    "00-001",
+    "123 456 789"
+  );
+  cy.get("#newsletter").click();
+  cy.get("#optin").click();
+  automationExercise.createAccountButton().click();
+  cy.get("#form > div > div > div > h2 > b")
+    .should("be.visible")
+    .and("contain", "Account Created!");
+  automationExercise.continueButton().click();
+  cy.get("ul > li:nth-child(10) > a").should("be.visible");
+});
+
+Then("Place order", () => {
+  automationExercise.cartEl().click();
+  automationExercise.checkoutButton().click();
+  cy.get("#address_delivery > li:nth-child(2)").should(
+    "contain",
+    "Mr. Wojciech Wojciechowski"
+  );
+  cy.get("#address_delivery > li:nth-child(3)").should("contain", "Apple");
+  cy.get("#address_delivery > li:nth-child(3)").should("contain", "Apple");
+  cy.get("#address_delivery > li:nth-child(4)").should(
+    "contain",
+    "Main Street"
+  );
+  cy.get("#address_delivery > .address_city").should("contain", "Los Angeles");
+  cy.get("#address_delivery > li:nth-child(7)").should(
+    "contain",
+    "United States"
+  );
+  cy.get("#address_delivery > li:nth-child(8)").should(
+    "contain",
+    "123 456 789"
+  );
+  cy.get("div > .check_out").click();
+  cy.get('input[name="name_on_card"]').type("Wojciech");
+  cy.get('input[name="card_number"]').type("123456");
+  cy.get('input[name="cvc"]').type("123");
+  cy.get('input[name="expiry_month"]').type("06");
+  cy.get('input[name="expiry_year"]').type("2023");
+  cy.get("#submit").click();
+  cy.get("#form > div > div > div > p")
+    .should("be.visible")
+    .and("contain", "Congratulations! Your order has been confirmed!");
+  cy.get("#form > div > div > div > p")
+    .should("be.visible")
+    .and("contain", "Congratulations! Your order has been confirmed!");
+});

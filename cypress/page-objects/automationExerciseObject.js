@@ -82,15 +82,23 @@ class automationExercise {
   }
 
   cartEl() {
-    return cy.get("div.col-sm-8 > div > ul > li:nth-child(3) > a")
+    return cy.get("div.col-sm-8 > div > ul > li:nth-child(3) > a");
   }
 
   closeModalEl() {
-    return cy.get(".close-modal")
+    return cy.get(".close-modal");
   }
 
   modalViewCartEl() {
-    return cy.get(".modal-body > p:nth-child(2) > a")
+    return cy.get(".modal-body > p:nth-child(2) > a");
+  }
+
+  checkoutButton() {
+    return cy.get(".col-sm-6 > .check_out");
+  }
+
+  modalRegisterLoginEl() {
+    return cy.get("div.modal-body > p:nth-child(2) > a");
   }
 }
 
