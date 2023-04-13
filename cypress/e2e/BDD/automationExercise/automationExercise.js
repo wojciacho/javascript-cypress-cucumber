@@ -285,3 +285,13 @@ Then("Place order", () => {
     .should("be.visible")
     .and("contain", "Congratulations! Your order has been confirmed!");
 });
+
+When("Login user", () => {
+  automationExercise.signUpEl().click();
+  cy.get(".login-form > h2").should("be.visible");
+  automationExercise.loginEmailEl().type("example@example2.com");
+  automationExercise.loginPasswordEl().type("WOJTAS12345!");
+  automationExercise.loginButton().click();
+  cy.get("ul > li:nth-child(10) > a").should("be.visible");
+  cy.url().should("include", "automationexercise.com");
+});

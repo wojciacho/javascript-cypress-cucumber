@@ -85,3 +85,10 @@ When Register user
 When Add product to cart
 Then Place order
 Then Delete user
+
+Scenario: automationExercise - place order and login before checkout
+Given Open automationExercise page
+When Verify home page
+When Login user
+When Add product to cart
+Then Place order
