@@ -92,3 +92,8 @@ When Verify home page
 When Login user
 When Add product to cart
 Then Place order
+
+Scenario: automationExercise - remove product from cart
+Given Open automationExercise page
+When Verify home page
+Then Add product and remove from cart

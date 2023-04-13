@@ -295,3 +295,17 @@ When("Login user", () => {
   cy.get("ul > li:nth-child(10) > a").should("be.visible");
   cy.url().should("include", "automationexercise.com");
 });
+
+Then("Add product and remove from cart", () => {
+  cy.get(
+    "div.features_items > div:nth-child(3) > div > div.single-products > div.product-overlay > div > a"
+  ).click({force: true});
+  automationExercise.modalViewCartEl().click();
+  cy.url().should("include", "/view_cart");
+  cy.get("#product-1").should("be.visible");
+  cy.get(".cart_quantity_delete").click();
+  cy.get("#empty_cart > p").should(
+    "contain",
+    "Cart is empty! Click here to buy products."
+  );
+});
