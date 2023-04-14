@@ -100,6 +100,22 @@ class automationExercise {
   modalRegisterLoginEl() {
     return cy.get("div.modal-body > p:nth-child(2) > a");
   }
+
+  womenEl() {
+    return cy.get("div:nth-child(1) > div.panel-heading > h4 > a");
+  }
+
+  womanDressEl() {
+    return cy.get("#Women > div > ul > li:nth-child(1) > a");
+  }
+
+  menEl() {
+    return cy.get("div:nth-child(2) > div.panel-heading > h4 > a");
+  }
+
+  menJeansEl() {
+    return cy.get("#Men > div > ul > li:nth-child(2) > a");
+  }
 }
 
 export default new automationExercise();

@@ -97,3 +97,9 @@ Scenario: automationExercise - remove product from cart
 Given Open automationExercise page
 When Verify home page
 Then Add product and remove from cart
+
+Scenario: automationExercise - view category products
+Given Open automationExercise page
+When Verify categories on left side bar
+When Click on women dress category and verify
+Then Click on men jeans category and verify

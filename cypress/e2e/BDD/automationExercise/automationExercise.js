@@ -309,3 +309,26 @@ Then("Add product and remove from cart", () => {
     "Cart is empty! Click here to buy products."
   );
 });
+
+When("Verify categories on left side bar", () => {
+  cy.get(".left-sidebar").should("be.visible");
+  cy.get(".category-products").should("be.visible");
+});
+
+When("Click on women dress category and verify", () => {
+  automationExercise.womenEl().click();
+  automationExercise.womanDressEl().click();
+  cy.get(".features_items > h2")
+    .should("be.visible")
+    .and("contain", "Women - Dress Products");
+  cy.url().should("include", "/category_products/1");
+});
+
+When("Click on men jeans category and verify", () => {
+  automationExercise.menEl().click();
+  automationExercise.menJeansEl().click();
+  cy.get(".features_items > h2")
+    .should("be.visible")
+    .and("contain", "Men - Jeans Products");
+  cy.url().should("include", "/category_products/6");
+});
