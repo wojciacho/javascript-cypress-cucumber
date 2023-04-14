@@ -349,3 +349,28 @@ Then("Click on other brand and verify", () => {
     .and("contain", "Brand - H&M Products");
   cy.url().should("include", "/brand_products/H&M");
 });
+
+When("Click on products and verify", () => {
+  automationExercise.productsEl().click();
+  cy.url().should("include", "/products");
+});
+
+When("Add searched product to cart", () => {
+  cy.get("div.single-products > div.product-overlay > div > a").click({
+    force: true,
+  });
+  automationExercise.modalViewCartEl().click();
+  cy.get("#cart_info_table > tbody").should("have.length", "1");
+  cy.get("#product-1 > td.cart_description > h4 > a")
+    .should("be.visible")
+    .and("contain", "Blue Top");
+});
+
+Then("Go to cart page and verify", () => {
+  automationExercise.cartEl().click();
+  cy.get("#cart_info_table > tbody").should("have.length", "1");
+  cy.get("#product-1 > td.cart_description > h4 > a")
+    .should("be.visible")
+    .and("contain", "Blue Top");
+  cy.get(".cart_quantity_delete > .fa").click();
+});
