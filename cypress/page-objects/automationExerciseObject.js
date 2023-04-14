@@ -116,6 +116,14 @@ class automationExercise {
   menJeansEl() {
     return cy.get("#Men > div > ul > li:nth-child(2) > a");
   }
+
+  poloBrandEl() {
+    return cy.get("div.brands_products > div > ul > li:nth-child(1) > a")
+  }
+
+  hmBrandEl() {
+    return cy.get("div.brands_products > div > ul > li:nth-child(2) > a")
+  }
 }
 
 export default new automationExercise();

@@ -332,3 +332,20 @@ When("Click on men jeans category and verify", () => {
     .and("contain", "Men - Jeans Products");
   cy.url().should("include", "/category_products/6");
 });
+
+When("Verify brands on left side bar and click on polo brand", () => {
+  cy.get(".brands_products").should("be.visible");
+  automationExercise.poloBrandEl().click();
+  cy.get(".features_items > h2")
+    .should("be.visible")
+    .and("contain", "Brand - Polo Products");
+  cy.url().should("include", "/brand_products/Polo");
+});
+
+Then("Click on other brand and verify", () => {
+  automationExercise.hmBrandEl().click();
+  cy.get(".features_items > h2")
+    .should("be.visible")
+    .and("contain", "Brand - H&M Products");
+  cy.url().should("include", "/brand_products/H&M");
+});

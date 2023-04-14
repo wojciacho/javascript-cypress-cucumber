@@ -103,3 +103,8 @@ Given Open automationExercise page
 When Verify categories on left side bar
 When Click on women dress category and verify
 Then Click on men jeans category and verify
+
+Scenario: automationExercise - view brand products
+Given Open automationExercise page
+When Verify brands on left side bar and click on polo brand
+Then Click on other brand and verify
