@@ -92,6 +92,7 @@ When Verify home page
 When Login user
 When Add product to cart
 Then Place order
+Then Logout user
 
 Scenario: automationExercise - remove product from cart
 Given Open automationExercise page
