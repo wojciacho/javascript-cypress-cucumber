@@ -123,3 +123,9 @@ Given Open automationExercise page
 When Click on products and verify
 When Click on view product and write review
 Then Submit review and verify message
+
+Scenario: automationExercise - add to cart from recommended items
+Given Open automationExercise page
+When Verify displaying recommended items
+When Add product to cart and click view cart
+Then Verify that product is displayed

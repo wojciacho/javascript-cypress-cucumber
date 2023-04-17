@@ -393,3 +393,22 @@ Then("Submit review and verify message", () => {
     .should("be.visible")
     .and("contain", "Thank you for your review.");
 });
+
+When("Verify displaying recommended items", () => {
+  cy.get(".recommended_items > h2")
+    .should("be.visible")
+    .and("contain", "recommended items");
+});
+
+When("Add product to cart and click view cart", () => {
+  cy.get(
+    "#recommended-item-carousel > div > div.item.active > div:nth-child(1) > div > div > div > a"
+  ).click({force: true});
+  automationExercise.modalViewCartEl().click();
+});
+
+Then("Verify that product is displayed", () => {
+  cy.get("h4 > a").should("be.visible").and("contain", "Stylish Dress");
+  cy.get("#cart_info_table > tbody").should("have.length", "1");
+  cy.get(".cart_quantity_delete > .fa").click();
+});
