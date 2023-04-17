@@ -374,3 +374,22 @@ Then("Go to cart page and verify", () => {
     .and("contain", "Blue Top");
   cy.get(".cart_quantity_delete > .fa").click();
 });
+
+When("Click on view product and write review", () => {
+  cy.get(
+    "div.features_items > div:nth-child(3) > div > div.choose > ul > li > a"
+  ).click();
+  cy.get(".active > a")
+    .should("be.visible")
+    .and("contain", "Write Your Review");
+  cy.get("#name").type("Wojciech");
+  cy.get("#email").type("example@wojciech.com");
+  cy.get("#review").type("test");
+});
+
+Then("Submit review and verify message", () => {
+  cy.get("#button-review").click();
+  cy.get(".alert-success")
+    .should("be.visible")
+    .and("contain", "Thank you for your review.");
+});

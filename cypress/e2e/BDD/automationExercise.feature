@@ -117,3 +117,9 @@ When Search product
 When Add searched product to cart
 Then Login user correctly
 Then Go to cart page and verify
+
+Scenario: automationExercise - add review on product
+Given Open automationExercise page
+When Click on products and verify
+When Click on view product and write review
+Then Submit review and verify message
