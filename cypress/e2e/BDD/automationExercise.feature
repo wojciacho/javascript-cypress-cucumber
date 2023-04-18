@@ -129,3 +129,9 @@ Given Open automationExercise page
 When Verify displaying recommended items
 When Add product to cart and click view cart
 Then Verify that product is displayed
+
+Scenario: automationExercise - view kids products
+Given Open automationExercise page
+When Verify home page
+When Verify kids category on left side
+Then Click on kids tops category and verify

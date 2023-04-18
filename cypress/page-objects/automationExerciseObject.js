@@ -124,6 +124,10 @@ class automationExercise {
   hmBrandEl() {
     return cy.get("div.brands_products > div > ul > li:nth-child(2) > a")
   }
+
+  babyhugBrandEl() {
+    return cy.get(" div.left-sidebar > div.brands_products > div > ul > li:nth-child(5) > a")
+  }
 }
 
 export default new automationExercise();

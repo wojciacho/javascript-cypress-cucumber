@@ -412,3 +412,19 @@ Then("Verify that product is displayed", () => {
   cy.get("#cart_info_table > tbody").should("have.length", "1");
   cy.get(".cart_quantity_delete > .fa").click();
 });
+
+When("Verify kids category on left side", () => {
+  cy.get("#accordian > div:nth-child(3) > div.panel-heading > h4 > a")
+    .should("be.visible")
+    .and("contain", "Kids");
+  cy.get("#accordian > div:nth-child(3) > div.panel-heading > h4 > a").click();
+});
+
+Then("Click on kids tops category and verify", () => {
+  cy.get("#Kids > div > ul > li:nth-child(2) > a").click();
+  cy.url().should("contain", "/category_products/5");
+  cy.get(".features_items > h2")
+    .should("be.visible")
+    .and("contain", "Kids - Tops & Shirts Products");
+});
+
