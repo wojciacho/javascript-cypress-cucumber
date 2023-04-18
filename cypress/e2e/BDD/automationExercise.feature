@@ -146,3 +146,8 @@ Given Open automationExercise page
 When Verify home page
 Then Verify brands on left side bar and click on babyhug brand
 Then Click on men jeans category and verify
+
+Scenario: automationExercise - view polo brand then go to woman dress category and verify page
+Given Open automationExercise page
+When Verify brands on left side bar and click on polo brand
+When Click on women dress category and verify
