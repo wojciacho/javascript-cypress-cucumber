@@ -135,3 +135,8 @@ Given Open automationExercise page
 When Verify home page
 When Verify kids category on left side
 Then Click on kids tops category and verify
+
+Scenario: automationExercise - verify babyhug brand
+Given Open automationExercise page
+When Verify home page
+Then Verify brands on left side bar and click on babyhug brand

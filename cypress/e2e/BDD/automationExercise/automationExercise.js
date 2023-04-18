@@ -428,3 +428,11 @@ Then("Click on kids tops category and verify", () => {
     .and("contain", "Kids - Tops & Shirts Products");
 });
 
+Then("Verify brands on left side bar and click on babyhug brand", () => {
+  cy.get(".brands_products").should("be.visible");
+  automationExercise.babyhugBrandEl().click();
+  cy.get(".features_items > h2")
+    .should("be.visible")
+    .and("contain", "Brand - Babyhug Products");
+  cy.url().should("include", "/brand_products/Babyhug");
+});
