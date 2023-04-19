@@ -8,4 +8,5 @@
 * https://demo.nopcommerce.com,
 * https://computer-database.gatling.io/computers,
 * https://magento.softwaretestingboard.com,
-* https://automationexercise.com
+* https://automationexercise.com,
+* https://www.demoblaze.com
