@@ -11,3 +11,9 @@ Given Open demoBlaze page
 When Verify home page
 When Go to laptops category and verify
 Then Click on MacBook Pro and verify
+
+Scenario: demoBlaze - verify contact us modal
+Given Open demoBlaze page
+When Verify home page
+When Click on contact us link and verify
+Then Fill details and send message

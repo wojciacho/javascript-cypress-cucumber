@@ -86,3 +86,18 @@ Then("Click on MacBook Pro and verify", () => {
   cy.get(".name").should("be.visible").and("contain", "MacBook Pro");
   cy.get(".price-container").should("be.visible").and("contain", "$1100");
 });
+
+When("Click on contact us link and verify", () => {
+  demoBlazeStore.contactUsEl().click();
+  cy.get("#exampleModal > div > div").should("be.visible");
+});
+
+Then("Fill details and send message", () => {
+  demoBlazeStore.contactUsEmailEl().type("example@wojciacho.com");
+  demoBlazeStore.contactUsNameEl().type("Wojciech");
+  demoBlazeStore.contactUsMessageEl().type("test");
+  demoBlazeStore.contactUsSendButton().click();
+  cy.on("window:alert", (message) => {
+    expect(message).to.eql("Thanks for the message!!");
+  });
+});

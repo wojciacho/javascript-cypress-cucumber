@@ -18,6 +18,28 @@ class demoBlazeStore {
   macBookProEl() {
     return cy.get("#tbodyid > div:nth-child(6) > div > div > h4 > a");
   }
+
+  contactUsEl() {
+    return cy.get("#navbarExample > ul > li:nth-child(2) > a");
+  }
+
+  contactUsEmailEl() {
+    return cy.get("#recipient-email");
+  }
+
+  contactUsNameEl() {
+    return cy.get("#recipient-name");
+  }
+
+  contactUsMessageEl() {
+    return cy.get("#message-text");
+  }
+
+  contactUsSendButton() {
+    return cy.get(
+      "#exampleModal > div > div > div.modal-footer > button.btn.btn-primary"
+    );
+  }
 }
 
 export default new demoBlazeStore();
