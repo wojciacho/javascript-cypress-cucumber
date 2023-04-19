@@ -115,3 +115,17 @@ Then("Fill details and sign up", () => {
     expect(message).to.eql("This user already exist.");
   });
 });
+
+When("Click on log in link and verify", () => {
+  demoBlazeStore.loginEl().click();
+  cy.get("#logInModal").should("be.visible");
+});
+
+Then("Fill details and log in verify and log out", () => {
+  demoBlazeStore.loginNameEl().type("WOJTAS1");
+  demoBlazeStore.loginPasswordEl().type("12345");
+  demoBlazeStore.loginButton().click();
+  cy.get("#nameofuser").should("be.visible").and("contain", "Welcome WOJTAS1");
+  demoBlazeStore.logoutEl().click();
+  demoBlazeStore.loginEl().should("be.visible").and("contain", "Log in");
+});

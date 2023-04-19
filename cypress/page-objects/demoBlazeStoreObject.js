@@ -60,7 +60,25 @@ class demoBlazeStore {
   }
 
   loginEl() {
-    return cy.get("#login2")
+    return cy.get("#login2");
+  }
+
+  loginNameEl() {
+    return cy.get("#loginusername");
+  }
+
+  loginPasswordEl() {
+    return cy.get("#loginpassword");
+  }
+
+  loginButton() {
+    return cy.get(
+      "#logInModal > div > div > div.modal-footer > button.btn.btn-primary"
+    );
+  }
+
+  logoutEl() {
+    return cy.get("#logout2");
   }
 }
 

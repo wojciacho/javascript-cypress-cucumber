@@ -24,4 +24,9 @@ When Verify home page
 When Click on sign up link and verify
 Then Fill details and sign up
 
+Scenario: demoBlaze - login user correctly
+Given Open demoBlaze page
+When Verify home page
+When Click on log in link and verify
+Then Fill details and log in verify and log out
 
