@@ -17,3 +17,11 @@ Given Open demoBlaze page
 When Verify home page
 When Click on contact us link and verify
 Then Fill details and send message
+
+Scenario: demoBlaze - register user with existing name
+Given Open demoBlaze page
+When Verify home page
+When Click on sign up link and verify
+Then Fill details and sign up
+
+

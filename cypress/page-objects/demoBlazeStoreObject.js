@@ -40,6 +40,28 @@ class demoBlazeStore {
       "#exampleModal > div > div > div.modal-footer > button.btn.btn-primary"
     );
   }
+
+  signUpEl() {
+    return cy.get("#signin2");
+  }
+
+  signUpName() {
+    return cy.get("#sign-username");
+  }
+
+  signUpPassword() {
+    return cy.get("#sign-password");
+  }
+
+  signUpButton() {
+    return cy.get(
+      "#signInModal > div > div > div.modal-footer > button.btn.btn-primary"
+    );
+  }
+
+  loginEl() {
+    return cy.get("#login2")
+  }
 }
 
 export default new demoBlazeStore();

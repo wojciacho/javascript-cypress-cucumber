@@ -101,3 +101,17 @@ Then("Fill details and send message", () => {
     expect(message).to.eql("Thanks for the message!!");
   });
 });
+
+When("Click on sign up link and verify", () => {
+  demoBlazeStore.signUpEl().click();
+  cy.get("#signInModal").should("be.visible");
+});
+
+Then("Fill details and sign up", () => {
+  demoBlazeStore.signUpName().type("Wojciacho");
+  demoBlazeStore.signUpPassword().type("WOJTAS12345!");
+  demoBlazeStore.signUpButton().click();
+  cy.on("window:alert", (message) => {
+    expect(message).to.eql("This user already exist.");
+  });
+});
