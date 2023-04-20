@@ -129,3 +129,12 @@ Then("Fill details and log in verify and log out", () => {
   demoBlazeStore.logoutEl().click();
   demoBlazeStore.loginEl().should("be.visible").and("contain", "Log in");
 });
+
+Then("Fill details and try to log in", () => {
+  demoBlazeStore.loginNameEl().type("Wojciacho");
+  demoBlazeStore.loginPasswordEl().type("12345");
+  demoBlazeStore.loginButton().click();
+  cy.on("window:alert", (message) => {
+    expect(message).to.eql("Wrong password.");
+  });
+});

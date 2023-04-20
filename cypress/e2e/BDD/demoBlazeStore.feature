@@ -30,3 +30,9 @@ When Verify home page
 When Click on log in link and verify
 Then Fill details and log in verify and log out
 
+Scenario: demoBlaze - login user incorrectly
+Given Open demoBlaze page
+When Verify home page
+When Click on log in link and verify
+Then Fill details and try to log in
+
