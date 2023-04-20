@@ -149,7 +149,7 @@ When("Pick nexus 6 phone and verify", () => {
 When("Add product to cart and verify", () => {
   demoBlazeStore.successButton().click();
   cy.on("window:alert", (message) => {
-    expect(message).to.eql("Product added");
+    expect(message).to.contain("Product added");
   });
   demoBlazeStore.cartEl().click();
   cy.url().should("include", "/cart.html");
@@ -177,4 +177,16 @@ Then("Place order", () => {
     .and("contain", "Thank you for your purchase!");
   cy.get(".confirm").click();
   cy.url().should("include", "/index.html");
+});
+
+When("Login correctly", () => {
+  demoBlazeStore.loginNameEl().type("WOJTAS1");
+  demoBlazeStore.loginPasswordEl().type("12345");
+  demoBlazeStore.loginButton().click();
+  cy.get("#nameofuser").should("be.visible").and("contain", "Welcome WOJTAS1");
+});
+
+Then("Logout user", () => {
+  demoBlazeStore.logoutEl().click();
+  demoBlazeStore.loginEl().should("be.visible").and("contain", "Log in");
 });

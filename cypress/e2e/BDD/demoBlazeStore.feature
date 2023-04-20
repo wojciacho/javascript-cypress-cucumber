@@ -43,3 +43,14 @@ When Go to phones category and verify
 When Pick nexus 6 phone and verify
 When Add product to cart and verify
 Then Place order
+
+Scenario: demoBlaze - checkout nexus phone after login
+Given Open demoBlaze page
+When Verify home page
+When Click on log in link and verify
+When Login correctly
+When Go to phones category and verify
+When Pick nexus 6 phone and verify
+When Add product to cart and verify
+Then Place order
+Then Logout user
