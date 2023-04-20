@@ -138,3 +138,43 @@ Then("Fill details and try to log in", () => {
     expect(message).to.eql("Wrong password.");
   });
 });
+
+When("Pick nexus 6 phone and verify", () => {
+  demoBlazeStore.nexusPhoneEl().click();
+  cy.url().should("contain", "/prod.html?idp_=3");
+  cy.get(".name").should("be.visible").and("contain", "Nexus 6");
+  cy.get(".price-container").should("be.visible").and("contain", "$650");
+});
+
+When("Add product to cart and verify", () => {
+  demoBlazeStore.successButton().click();
+  cy.on("window:alert", (message) => {
+    expect(message).to.eql("Product added");
+  });
+  demoBlazeStore.cartEl().click();
+  cy.url().should("include", "/cart.html");
+  cy.get("#totalp").should("be.visible").and("contain", "650");
+  cy.get("#tbodyid").should("have.length", "1");
+  cy.get("#tbodyid > tr > td:nth-child(2)")
+    .should("be.visible")
+    .and("contain", "Nexus 6");
+});
+
+Then("Place order", () => {
+  demoBlazeStore.successButton().click();
+  cy.get("#orderModal").should("be.visible");
+  cy.get("#totalm").should("be.visible");
+  demoBlazeStore.placeOrderNameEl().type("Wojciech");
+  demoBlazeStore.placeOrderCountryEl().type("Poland");
+  demoBlazeStore.placeOrderCityEl().type("Warsaw");
+  demoBlazeStore.placeOrderCardEl().type("12345");
+  demoBlazeStore.placeOrderMonthEl().type("06");
+  demoBlazeStore.placeOrderYearEl().type("23");
+  demoBlazeStore.purchaseButton().click();
+  cy.get(".sweet-alert").should("be.visible");
+  cy.get(".sweet-alert > h2")
+    .should("be.visible")
+    .and("contain", "Thank you for your purchase!");
+  cy.get(".confirm").click();
+  cy.url().should("include", "/index.html");
+});

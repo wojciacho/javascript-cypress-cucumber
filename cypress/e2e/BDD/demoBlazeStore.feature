@@ -36,3 +36,10 @@ When Verify home page
 When Click on log in link and verify
 Then Fill details and try to log in
 
+Scenario: demoBlaze - checkout nexus phone without login
+Given Open demoBlaze page
+When Verify home page
+When Go to phones category and verify
+When Pick nexus 6 phone and verify
+When Add product to cart and verify
+Then Place order

@@ -80,6 +80,44 @@ class demoBlazeStore {
   logoutEl() {
     return cy.get("#logout2");
   }
+
+  successButton() {
+    return cy.get(".btn-success");
+  }
+
+  cartEl() {
+    return cy.get("#cartur");
+  }
+
+  placeOrderNameEl() {
+    return cy.get("#name");
+  }
+
+  placeOrderCountryEl() {
+    return cy.get("#country");
+  }
+
+  placeOrderCityEl() {
+    return cy.get("#city");
+  }
+
+  placeOrderCardEl() {
+    return cy.get("#card");
+  }
+
+  placeOrderMonthEl() {
+    return cy.get("#month");
+  }
+
+  placeOrderYearEl() {
+    return cy.get("#year");
+  }
+
+  purchaseButton() {
+    return cy.get(
+      "#orderModal > div > div > div.modal-footer > button.btn.btn-primary"
+    );
+  }
 }
 
 export default new demoBlazeStore();
