@@ -118,6 +118,14 @@ class demoBlazeStore {
       "#orderModal > div > div > div.modal-footer > button.btn.btn-primary"
     );
   }
+
+  monitorsEl() {
+    return cy.get(".list-group-item").contains("Monitors");
+  }
+
+  appleMonitorEl() {
+    return cy.get("#tbodyid > div:nth-child(1) > div > div > h4 > a")
+  }
 }
 
 export default new demoBlazeStore();

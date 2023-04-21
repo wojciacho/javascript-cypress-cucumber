@@ -195,3 +195,22 @@ Then("Delete product from cart", () => {
   cy.get("#tbodyid > tr > td:nth-child(4) > a").click();
   cy.get("#totalp").should("not.be.visible");
 });
+
+When("Go to monitors category and verify", () => {
+  demoBlazeStore.monitorsEl().click();
+  cy.get("#tbodyid > div:nth-child(1) > div > div > h4 > a").should(
+    "contain",
+    "Apple monitor 24"
+  );
+  cy.get("#tbodyid > div:nth-child(2) > div > div > h4 > a").should(
+    "contain",
+    "ASUS Full HD"
+  );
+});
+
+Then("Click on Apple monitor and verify", () => {
+  demoBlazeStore.appleMonitorEl().click();
+  cy.url().should("contain", "/prod.html?idp_=10");
+  cy.get(".name").should("be.visible").and("contain", "Apple monitor 24");
+  cy.get(".price-container").should("be.visible").and("contain", "$400");
+});

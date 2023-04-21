@@ -61,3 +61,9 @@ When Verify home page
 When Pick nexus 6 phone and verify
 When Add product to cart and verify
 Then Delete product from cart
+
+Scenario: demoBlaze - verify monitors page
+Given Open demoBlaze page
+When Verify home page
+When Go to monitors category and verify
+Then Click on Apple monitor and verify
