@@ -54,3 +54,10 @@ When Pick nexus 6 phone and verify
 When Add product to cart and verify
 Then Place order
 Then Logout user
+
+Scenario: demoBlaze - delete product from cart
+Given Open demoBlaze page
+When Verify home page
+When Pick nexus 6 phone and verify
+When Add product to cart and verify
+Then Delete product from cart

@@ -190,3 +190,8 @@ Then("Logout user", () => {
   demoBlazeStore.logoutEl().click();
   demoBlazeStore.loginEl().should("be.visible").and("contain", "Log in");
 });
+
+Then("Delete product from cart", () => {
+  cy.get("#tbodyid > tr > td:nth-child(4) > a").click();
+  cy.get("#totalp").should("not.be.visible");
+});
