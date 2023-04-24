@@ -72,3 +72,10 @@ Scenario: demoBlaze - verify footer
 Given Open demoBlaze page
 When Verify home page
 Then Verify footer
+
+Scenario: demoBlaze - verify phone description
+Given Open demoBlaze page
+When Verify home page
+When Go to phones category and verify
+Then Click on Nexus 6 phone and verify
+Then Verify Nexus 6 description
