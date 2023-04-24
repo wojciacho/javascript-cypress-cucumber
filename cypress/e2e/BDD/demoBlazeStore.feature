@@ -79,3 +79,11 @@ When Verify home page
 When Go to phones category and verify
 Then Click on Nexus 6 phone and verify
 Then Verify Nexus 6 description
+
+
+Scenario: demoBlaze - verify footer on Apple monitor page
+Given Open demoBlaze page
+When Verify home page
+When Go to monitors category and verify
+Then Click on Apple monitor and verify
+Then Verify footer
