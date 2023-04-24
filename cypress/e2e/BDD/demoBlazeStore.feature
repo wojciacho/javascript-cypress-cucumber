@@ -87,3 +87,10 @@ When Verify home page
 When Go to monitors category and verify
 Then Click on Apple monitor and verify
 Then Verify footer
+
+Scenario: demoBlaze - verify laptop description
+Given Open demoBlaze page
+When Verify home page
+When Go to laptops category and verify
+Then Click on MacBook Pro and verify
+Then Verify MacBook Pro description

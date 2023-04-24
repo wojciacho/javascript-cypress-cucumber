@@ -232,3 +232,21 @@ Then("Verify footer", () => {
     .should("be.visible")
     .and("contain", "Copyright © Product Store 2017");
 });
+
+Then("Verify Nexus 6 description", () => {
+  cy.get("#more-information > p")
+    .should("be.visible")
+    .and(
+      "contain",
+      "The Motorola Google Nexus 6 is powered by 2.7GHz quad-core Qualcomm Snapdragon 805 processor and it comes with 3GB of RAM."
+    );
+});
+
+Then("Verify MacBook Pro description", () => {
+  cy.get("#more-information > p")
+    .should("be.visible")
+    .and(
+      "contain",
+      "Apple has introduced three new versions of its MacBook Pro line"
+    );
+});
