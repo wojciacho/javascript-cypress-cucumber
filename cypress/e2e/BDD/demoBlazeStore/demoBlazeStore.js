@@ -214,3 +214,21 @@ Then("Click on Apple monitor and verify", () => {
   cy.get(".name").should("be.visible").and("contain", "Apple monitor 24");
   cy.get(".price-container").should("be.visible").and("contain", "$400");
 });
+
+Then("Verify footer", () => {
+  cy.get("#footc").should("be.visible");
+  cy.get("#fotcont > div:nth-child(1) > div > div > h4 > b")
+    .should("be.visible")
+    .and("contain", "About Us");
+  cy.get("#fotcont > div:nth-child(2) > div > div > h4 > b")
+    .should("be.visible")
+    .and("contain", "Get in Touch");
+  cy.get(
+    "#fotcont > div.col-sm-3.col-lg-3.col-md-3 > div > div > p:nth-child(4)"
+  )
+    .should("be.visible")
+    .and("contain", "Email: demo@blazemeter.com");
+  cy.get(".m-0")
+    .should("be.visible")
+    .and("contain", "Copyright © Product Store 2017");
+});

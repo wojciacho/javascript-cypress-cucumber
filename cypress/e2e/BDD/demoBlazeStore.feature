@@ -67,3 +67,8 @@ Given Open demoBlaze page
 When Verify home page
 When Go to monitors category and verify
 Then Click on Apple monitor and verify
+
+Scenario: demoBlaze - verify footer
+Given Open demoBlaze page
+When Verify home page
+Then Verify footer
