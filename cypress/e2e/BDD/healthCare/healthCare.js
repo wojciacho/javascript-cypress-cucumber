@@ -62,3 +62,13 @@ Then("Login user incorrectly", () => {
       "Login failed! Please ensure the username and password are valid."
     );
 });
+
+Then("Go to history page and verify", () => {
+  healthCare.menuToggle().click();
+  healthCare.historyEl().click();
+  cy.url().should("include", "/history.php#history");
+  cy.get("#history > div > div:nth-child(1) > div > h2")
+    .should("be.visible")
+    .and("contain", "History");
+  cy.get(".btn-default").should("be.visible");
+});

@@ -26,6 +26,10 @@ class healthCare {
   logoutEl() {
     return cy.get(".sidebar-nav > li:nth-child(6)");
   }
+
+  historyEl() {
+    return cy.get("#sidebar-wrapper > ul > li:nth-child(4) > a");
+  }
 }
 
 export default new healthCare();

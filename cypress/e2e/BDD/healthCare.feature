@@ -17,3 +17,11 @@ Given Open healthCare page
 When Verify home page
 Then Go to login page and verify
 Then Login user incorrectly
+
+Scenario: healthCare - verify history page
+Given Open healthCare page
+When Verify home page
+Then Go to login page and verify
+Then Login user correctly
+Then Go to history page and verify
+
