@@ -9,4 +9,5 @@
 * https://computer-database.gatling.io/computers,
 * https://magento.softwaretestingboard.com,
 * https://automationexercise.com,
-* https://www.demoblaze.com
+* https://www.demoblaze.com,
+* https://katalon-demo-cura.herokuapp.com
