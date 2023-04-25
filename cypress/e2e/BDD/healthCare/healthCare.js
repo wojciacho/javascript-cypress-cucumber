@@ -50,3 +50,15 @@ Then("Logout user", () => {
   healthCare.menuToggle().click();
   healthCare.logoutEl().click();
 });
+
+Then("Login user incorrectly", () => {
+  healthCare.usernameEl().type("John Doe");
+  healthCare.passwordEl().type("ThisIsNotAPassword1");
+  healthCare.loginButton().click();
+  cy.get(".text-danger")
+    .should("be.visible")
+    .and(
+      "contain",
+      "Login failed! Please ensure the username and password are valid."
+    );
+});
