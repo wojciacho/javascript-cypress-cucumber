@@ -35,4 +35,18 @@ Then("Go to login page and verify", () => {
     .and("have.value", "ThisIsNotAPassword");
 });
 
+Then("Login user correctly", () => {
+  healthCare.usernameEl().type("John Doe");
+  healthCare.passwordEl().type("ThisIsNotAPassword");
+  healthCare.loginButton().click();
+  cy.url().should("include", "/#appointment");
+  cy.get("#appointment > div > div > div > h2")
+    .should("be.visible")
+    .and("contain", "Make Appointment");
+  cy.get(".form-horizontal").should("be.visible");
+});
 
+Then("Logout user", () => {
+  healthCare.menuToggle().click();
+  healthCare.logoutEl().click();
+});
