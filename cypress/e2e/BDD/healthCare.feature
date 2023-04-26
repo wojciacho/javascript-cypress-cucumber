@@ -33,3 +33,8 @@ When Click make appointment button and verify url
 Then Login user correctly
 Then Logout user
 
+Scenario: healthCare - incorrectly user login by clicking make appointment button
+Given Open healthCare page
+When Verify home page
+When Click make appointment button and verify url
+Then Login user incorrectly
