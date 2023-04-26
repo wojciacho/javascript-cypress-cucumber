@@ -30,6 +30,10 @@ class healthCare {
   historyEl() {
     return cy.get("#sidebar-wrapper > ul > li:nth-child(4) > a");
   }
+
+  appointmentButton() {
+    return cy.get("#btn-make-appointment");
+  }
 }
 
 export default new healthCare();

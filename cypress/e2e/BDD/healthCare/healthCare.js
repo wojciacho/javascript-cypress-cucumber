@@ -72,3 +72,8 @@ Then("Go to history page and verify", () => {
     .and("contain", "History");
   cy.get(".btn-default").should("be.visible");
 });
+
+When("Click make appointment button and verify url", () => {
+  healthCare.appointmentButton().click();
+  cy.url().should("include", "/profile.php#login");
+});
