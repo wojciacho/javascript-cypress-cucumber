@@ -34,6 +34,34 @@ class healthCare {
   appointmentButton() {
     return cy.get("#btn-make-appointment");
   }
+
+  facilityEl() {
+    return cy.get("#combo_facility");
+  }
+
+  readmissionCheckboxEl() {
+    return cy.get("#chk_hospotal_readmission");
+  }
+
+  healthcareProgramEl() {
+    return cy.get("#radio_program_medicaid");
+  }
+
+  visitDateEl() {
+    return cy.get("#txt_visit_date");
+  }
+
+  commentEl() {
+    return cy.get("#txt_comment");
+  }
+
+  bookAppointmentButton() {
+    return cy.get("#btn-book-appointment");
+  }
+
+  homepageButton() {
+    return cy.get(".btn-default");
+  }
 }
 
 export default new healthCare();

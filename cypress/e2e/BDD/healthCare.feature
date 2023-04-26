@@ -38,3 +38,12 @@ Given Open healthCare page
 When Verify home page
 When Click make appointment button and verify url
 Then Login user incorrectly
+
+Scenario: healthCare - making appointment in tokyo facility
+Given Open healthCare page
+When Verify home page
+Then Go to login page and verify
+Then Login user correctly
+Then Fill appointment form and book appointment
+Then Verify appointment summary
+Then Logout user

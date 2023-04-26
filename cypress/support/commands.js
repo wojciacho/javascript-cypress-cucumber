@@ -65,6 +65,22 @@ Cypress.Commands.add("signUpDetails", (password, firstName, lastName, company, a
   cy.get("#mobile_number").type(number)
 })
 
+Cypress.Commands.add("facilityAssertion", (facility) => {
+  cy.get("#facility").should("contain", facility);
+});
+
+Cypress.Commands.add("programAssertion", (program) => {
+  cy.get("#program").should("contain", program);
+});
+
+Cypress.Commands.add("dateAssertion", (date) => {
+  cy.get("#visit_date").should("contain", date);
+});
+
+Cypress.Commands.add("commentAssertion", (comment) => {
+  cy.get("#comment").should("contain", comment);
+});
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })

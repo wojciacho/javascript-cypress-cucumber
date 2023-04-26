@@ -77,3 +77,28 @@ When("Click make appointment button and verify url", () => {
   healthCare.appointmentButton().click();
   cy.url().should("include", "/profile.php#login");
 });
+
+Then("Fill appointment form and book appointment", () => {
+  healthCare.facilityEl().select("Tokyo CURA Healthcare Center");
+  healthCare.readmissionCheckboxEl().click();
+  healthCare.readmissionCheckboxEl().should("be.checked");
+  healthCare.healthcareProgramEl().click();
+  healthCare.healthcareProgramEl().should("have.value", "Medicaid");
+  healthCare.visitDateEl().type("06/06/2023");
+  healthCare.commentEl().type("test", {force: true});
+  healthCare.bookAppointmentButton().click();
+});
+
+Then("Verify appointment summary", () => {
+  cy.url().should("include", "/appointment.php#summary");
+  cy.get(".col-xs-12 > h2")
+    .should("be.visible")
+    .and("contain", "Appointment Confirmation");
+  cy.facilityAssertion("Tokyo CURA Healthcare Center");
+  cy.get("#hospital_readmission").should("contain", "Yes");
+  cy.programAssertion("Medicaid");
+  cy.dateAssertion("06/06/2023");
+  cy.commentAssertion("test");
+  healthCare.homepageButton().click();
+  cy.url().should("include", "https://katalon-demo-cura.herokuapp.com");
+});
