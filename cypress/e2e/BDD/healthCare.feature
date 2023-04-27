@@ -57,5 +57,11 @@ Then Fill hongkong facility appointment form and book appointment
 Then Verify hongkong appointment summary
 Then Logout user
 
-
-
+Scenario: healthCare - making appointment in seoul facility
+Given Open healthCare page
+When Verify home page
+Then Go to login page and verify
+Then Login user correctly
+Then Fill seoul facility appointment form and book appointment
+Then Verify seoul appointment summary
+Then Logout user
