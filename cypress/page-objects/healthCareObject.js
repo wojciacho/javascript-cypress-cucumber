@@ -47,6 +47,14 @@ class healthCare {
     return cy.get("#radio_program_medicaid");
   }
 
+  medicareProgramEl() {
+    return cy.get("#radio_program_medicare");
+  } 
+   
+  noneProgramEl() {
+    return cy.get("#radio_program_none");
+  }
+
   visitDateEl() {
     return cy.get("#txt_visit_date");
   }
