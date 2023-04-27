@@ -153,16 +153,19 @@ Then("Verify seoul appointment summary", () => {
   cy.url().should("include", "https://katalon-demo-cura.herokuapp.com");
 });
 
-Then("Fill medicare seoul facility appointment form and book appointment", () => {
-  healthCare.facilityEl().select("Seoul CURA Healthcare Center");
-  healthCare.readmissionCheckboxEl().click();
-  healthCare.readmissionCheckboxEl().should("be.checked");
-  healthCare.medicareProgramEl().click();
-  healthCare.medicareProgramEl().should("have.value", "Medicare");
-  healthCare.visitDateEl().type("06/06/2023");
-  healthCare.commentEl().type("test", {force: true});
-  healthCare.bookAppointmentButton().click();
-});
+Then(
+  "Fill medicare seoul facility appointment form and book appointment",
+  () => {
+    healthCare.facilityEl().select("Seoul CURA Healthcare Center");
+    healthCare.readmissionCheckboxEl().click();
+    healthCare.readmissionCheckboxEl().should("be.checked");
+    healthCare.medicareProgramEl().click();
+    healthCare.medicareProgramEl().should("have.value", "Medicare");
+    healthCare.visitDateEl().type("06/06/2023");
+    healthCare.commentEl().type("test", {force: true});
+    healthCare.bookAppointmentButton().click();
+  }
+);
 
 Then("Verify medicare seoul appointment summary", () => {
   cy.url().should("include", "/appointment.php#summary");
@@ -172,6 +175,34 @@ Then("Verify medicare seoul appointment summary", () => {
   cy.facilityAssertion("Seoul CURA Healthcare Center");
   cy.get("#hospital_readmission").should("contain", "Yes");
   cy.programAssertion("Medicare");
+  cy.dateAssertion("06/06/2023");
+  cy.commentAssertion("test");
+  healthCare.homepageButton().click();
+  cy.url().should("include", "https://katalon-demo-cura.herokuapp.com");
+});
+
+Then(
+  "Fill none hongkong facility appointment form and book appointment",
+  () => {
+    healthCare.facilityEl().select("Hongkong CURA Healthcare Center");
+    healthCare.readmissionCheckboxEl().click();
+    healthCare.readmissionCheckboxEl().should("be.checked");
+    healthCare.noneProgramEl().click();
+    healthCare.noneProgramEl().should("have.value", "None");
+    healthCare.visitDateEl().type("06/06/2023");
+    healthCare.commentEl().type("test", {force: true});
+    healthCare.bookAppointmentButton().click();
+  }
+);
+
+Then("Verify none hongkong appointment summary", () => {
+  cy.url().should("include", "/appointment.php#summary");
+  cy.get(".col-xs-12 > h2")
+    .should("be.visible")
+    .and("contain", "Appointment Confirmation");
+  cy.facilityAssertion("Hongkong CURA Healthcare Center");
+  cy.get("#hospital_readmission").should("contain", "Yes");
+  cy.programAssertion("None");
   cy.dateAssertion("06/06/2023");
   cy.commentAssertion("test");
   healthCare.homepageButton().click();

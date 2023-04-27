@@ -66,11 +66,20 @@ Then Fill seoul facility appointment form and book appointment
 Then Verify seoul appointment summary
 Then Logout user
 
-Scenario: healthCare - making appointment with medicare program
+Scenario: healthCare - making appointment with medicare program in seoul facility
 Given Open healthCare page
 When Verify home page
 Then Go to login page and verify
 Then Login user correctly
 Then Fill medicare seoul facility appointment form and book appointment
 Then Verify medicare seoul appointment summary
+Then Logout user
+
+Scenario: healthCare - making appointment with none program in hongkong facility
+Given Open healthCare page
+When Verify home page
+Then Go to login page and verify
+Then Login user correctly
+Then Fill none hongkong facility appointment form and book appointment
+Then Verify none hongkong appointment summary
 Then Logout user
