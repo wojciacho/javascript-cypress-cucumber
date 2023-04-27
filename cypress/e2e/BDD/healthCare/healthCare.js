@@ -208,3 +208,21 @@ Then("Verify none hongkong appointment summary", () => {
   healthCare.homepageButton().click();
   cy.url().should("include", "https://katalon-demo-cura.herokuapp.com");
 });
+
+Then("Verify footer", () => {
+  cy.get(".text-center > h4")
+    .should("be.visible")
+    .and("contain", "CURA Healthcare Service");
+  cy.get(".text-center > p")
+    .should("be.visible")
+    .and("contain", "Atlanta 550 Pharr Road NE Suite 525");
+  cy.get(".list-unstyled > li:nth-child(1)")
+    .should("be.visible")
+    .and("contain", " (678) 813-1KMS");
+  cy.get(".list-unstyled > li:nth-child(2)")
+    .should("be.visible")
+    .and("contain", "info@katalon.com");
+  cy.get(".text-muted")
+    .should("be.visible")
+    .and("contain", "Copyright © CURA Healthcare Service 2023");
+});
