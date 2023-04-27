@@ -65,3 +65,12 @@ Then Login user correctly
 Then Fill seoul facility appointment form and book appointment
 Then Verify seoul appointment summary
 Then Logout user
+
+Scenario: healthCare - making appointment with medicare program
+Given Open healthCare page
+When Verify home page
+Then Go to login page and verify
+Then Login user correctly
+Then Fill medicare seoul facility appointment form and book appointment
+Then Verify medicare seoul appointment summary
+Then Logout user
