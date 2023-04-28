@@ -49,3 +49,8 @@ Then("Add customer", () => {
     expect(message).to.contain("Customer added successfully with customer id");
   });
 });
+
+Then("Check customers page", () => {
+  globalSqaBank.customersButton().click();
+  cy.url().should("include", "/manager/list");
+});

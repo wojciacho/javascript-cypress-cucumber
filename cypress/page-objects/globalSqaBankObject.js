@@ -32,6 +32,10 @@ class globalSqa {
   addCustomerButton() {
     return cy.get('[ng-class="btnClass1"]');
   }
+
+  customersButton() {
+    return cy.get('[ng-class="btnClass3"]');
+  }
 }
 
 export default new globalSqa();
