@@ -9,3 +9,9 @@ Scenario: globalSqa Bank - verify bank manager page
 Given Open globalSqa Bank page
 When Verify home page
 Then Click bank manager login and verify
+
+Scenario: globalSqa Bank - add customer
+Given Open globalSqa Bank page
+When Verify home page
+Then Click bank manager login and verify
+Then Add customer

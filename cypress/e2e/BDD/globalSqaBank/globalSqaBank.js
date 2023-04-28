@@ -25,9 +25,27 @@ Then("Click customer login and verify", () => {
 });
 
 Then("Click bank manager login and verify", () => {
-    globalSqaBank.bankManagerLoginEl().click()
-    cy.url().should("include", "/manager");
-    cy.get(".center > button:nth-child(1)").should("be.visible").and("contain", "Add Customer")
-    cy.get(".center > button:nth-child(2)").should("be.visible").and("contain", "Open Account")
-    cy.get(".center > button:nth-child(3)").should("be.visible").and("contain", "Customers")
-})
+  globalSqaBank.bankManagerLoginEl().click();
+  cy.url().should("include", "/manager");
+  cy.get(".center > button:nth-child(1)")
+    .should("be.visible")
+    .and("contain", "Add Customer");
+  cy.get(".center > button:nth-child(2)")
+    .should("be.visible")
+    .and("contain", "Open Account");
+  cy.get(".center > button:nth-child(3)")
+    .should("be.visible")
+    .and("contain", "Customers");
+});
+
+Then("Add customer", () => {
+  globalSqaBank.addCustomerButton().click();
+  cy.url().should("include", "/manager/addCust");
+  globalSqaBank.firstNameEl().type("Wojciech");
+  globalSqaBank.lastNameEl().type("Wojciechowski");
+  globalSqaBank.postCodeEl().type("12345");
+  globalSqaBank.confirmButton().click();
+  cy.on("window:alert", (message) => {
+    expect(message).to.contain("Customer added successfully with customer id");
+  });
+});
