@@ -8,6 +8,10 @@ class globalSqa {
   customerLoginEl() {
     return cy.get("div.borderM.box.padT20 > div:nth-child(1) > button");
   }
+
+  bankManagerLoginEl() {
+    return cy.get("div.borderM.box.padT20 > div:nth-child(3) > button");
+  }
 }
 
-export default new globalSqa
+export default new globalSqa();

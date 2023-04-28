@@ -19,7 +19,15 @@ When("Verify home page", () => {
 
 Then("Click customer login and verify", () => {
   globalSqaBank.customerLoginEl().click();
-  cy.url().should("include", "/#/customer");
+  cy.url().should("include", "/customer");
   cy.get(".form-group > label").should("be.visible");
   cy.get("#userSelect").should("be.visible");
 });
+
+Then("Click bank manager login and verify", () => {
+    globalSqaBank.bankManagerLoginEl().click()
+    cy.url().should("include", "/manager");
+    cy.get(".center > button:nth-child(1)").should("be.visible").and("contain", "Add Customer")
+    cy.get(".center > button:nth-child(2)").should("be.visible").and("contain", "Open Account")
+    cy.get(".center > button:nth-child(3)").should("be.visible").and("contain", "Customers")
+})
