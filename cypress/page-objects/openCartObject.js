@@ -8,6 +8,10 @@ class openCart {
   shoppingCartEl() {
     return cy.get(".list-inline-item:nth-child(4)");
   }
+
+  allDesktopsEl() {
+    return cy.get("#narbar-menu > ul > li:nth-child(1) > div > a");
+  }
 }
 
 export default new openCart();

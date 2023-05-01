@@ -9,3 +9,8 @@ Scenario: openCart - check footer
 Given Open openCart page
 When Verify home page
 Then Check footer on home page
+
+Scenario: openCart - validate desktops page
+Given Open openCart page
+When Verify home page
+Then Click on desktops and verify

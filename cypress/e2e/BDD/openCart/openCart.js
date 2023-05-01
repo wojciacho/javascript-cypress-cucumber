@@ -42,3 +42,25 @@ Then("Check footer on home page", () => {
     .should("be.visible")
     .and("contain", "Powered By OpenCart");
 });
+
+Then("Click on desktops and verify", () => {
+  openCart.allDesktopsEl().click({force: true});
+  cy.url().should("include", "/category&language=en-gb&path=20");
+  cy.get("#content > h2").should("be.visible").and("contain", "Desktops");
+  cy.get("#product-list").should("be.visible");
+  cy.get(
+    "div:nth-child(1) > form > div > div.content > div.description > h4 > a"
+  )
+    .should("be.visible")
+    .and("contain", "Apple Cinema 30");
+  cy.get(
+    "div:nth-child(2) > form > div > div.content > div.description > h4 > a"
+  )
+    .should("be.visible")
+    .and("contain", "Canon EOS 5D");
+  cy.get(
+    "div:nth-child(3) > form > div > div.content > div.description > h4 > a"
+  )
+    .should("be.visible")
+    .and("contain", "HP LP3065");
+});
