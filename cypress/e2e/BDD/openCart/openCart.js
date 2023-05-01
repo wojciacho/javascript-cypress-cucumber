@@ -23,3 +23,22 @@ Then("Click shopping cart and verify", () => {
     .should("be.visible")
     .and("contain", "Your shopping cart is empty!");
 });
+
+Then("Check footer on home page", () => {
+  cy.get("footer > .container").should("be.visible");
+  cy.get(".col-sm-3:nth-child(1) > h5")
+    .should("be.visible")
+    .and("contain", "Information");
+  cy.get(".col-sm-3:nth-child(2) > h5")
+    .should("be.visible")
+    .and("contain", "Customer Service");
+  cy.get(".col-sm-3:nth-child(3) > h5")
+    .should("be.visible")
+    .and("contain", "Extras");
+  cy.get(".col-sm-3:nth-child(4) > h5")
+    .should("be.visible")
+    .and("contain", "My Account");
+  cy.get("footer > div > p")
+    .should("be.visible")
+    .and("contain", "Powered By OpenCart");
+});
