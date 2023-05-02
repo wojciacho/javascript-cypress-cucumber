@@ -78,6 +78,7 @@ Then("Login user incorrectly", () => {
   openCart.passwordLoginInput().type("WOJTAS");
   openCart.loginButton().click();
   cy.url().should("include", "/login&language=en-gb");
+  cy.get("#logo").click();
 });
 
 Then("Change currency to euro and verify", () => {
@@ -86,8 +87,12 @@ Then("Change currency to euro and verify", () => {
   cy.get("#form-currency > div > a > strong")
     .should("be.visible")
     .and("contain", "€");
-  cy.get("#form-currency > div > a > strong").should(
-    "have.class",
-    "dropdown-toggle"
-  );
+});
+
+Then("Change currency to pound and verify", () => {
+  openCart.currencyEl().click();
+  cy.get("#form-currency > div > ul > li:nth-child(2) > a").click();
+  cy.get("#form-currency > div > a > strong")
+    .should("be.visible")
+    .and("contain", "£");
 });
