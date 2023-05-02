@@ -64,3 +64,18 @@ Then("Click on desktops and verify", () => {
     .should("be.visible")
     .and("contain", "HP LP3065");
 });
+
+Then("Login user incorrectly", () => {
+  openCart.myAccountEl().click();
+  openCart.loginEl().click();
+  cy.url().should("include", "/login&language=en-gb");
+  cy.get("#form-login > h2")
+    .should("be.visible")
+    .and("contain", "Returning Customer");
+  openCart.emailLoginInput().should("be.visible");
+  openCart.emailLoginInput().type("test@test.com");
+  openCart.passwordLoginInput().should("be.visible");
+  openCart.passwordLoginInput().type("WOJTAS");
+  openCart.loginButton().click();
+  cy.url().should("include", "/login&language=en-gb");
+});
