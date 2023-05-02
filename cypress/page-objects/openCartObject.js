@@ -36,6 +36,10 @@ class openCart {
   loginButton() {
     return cy.get("#form-login > button");
   }
+
+  currencyEl() {
+    return cy.get("#form-currency");
+  }
 }
 
 export default new openCart();

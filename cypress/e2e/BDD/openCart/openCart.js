@@ -79,3 +79,15 @@ Then("Login user incorrectly", () => {
   openCart.loginButton().click();
   cy.url().should("include", "/login&language=en-gb");
 });
+
+Then("Change currency to euro and verify", () => {
+  openCart.currencyEl().click();
+  cy.get("#form-currency > div > ul > li:nth-child(1) > a").click();
+  cy.get("#form-currency > div > a > strong")
+    .should("be.visible")
+    .and("contain", "€");
+  cy.get("#form-currency > div > a > strong").should(
+    "have.class",
+    "dropdown-toggle"
+  );
+});

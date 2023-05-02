@@ -19,3 +19,8 @@ Scenario: openCart - incorrectly user login
 Given Open openCart page
 When Verify home page
 Then Login user incorrectly
+
+Scenario: openCart - change currency to euro
+Given Open openCart page
+When Verify home page
+Then Change currency to euro and verify
