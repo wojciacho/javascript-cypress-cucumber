@@ -29,3 +29,8 @@ Scenario: openCart - change currency to pound
 Given Open openCart page
 When Verify home page
 Then Change currency to pound and verify
+
+Scenario: openCart - change currency to us dollar
+Given Open openCart page
+When Verify home page
+Then Change currency to us dollar and verify

@@ -96,3 +96,11 @@ Then("Change currency to pound and verify", () => {
     .should("be.visible")
     .and("contain", "£");
 });
+
+Then("Change currency to us dollar and verify", () => {
+  openCart.currencyEl().click();
+  cy.get("#form-currency > div > ul > li:nth-child(3) > a").click();
+  cy.get("#form-currency > div > a > strong")
+    .should("be.visible")
+    .and("contain", "$");
+});
