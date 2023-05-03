@@ -149,3 +149,20 @@ Then("Register account", () => {
   cy.get('input[name="agree"]').click();
   cy.get('button[type="submit"]').click();
 });
+
+Then("Click on tablets category and verify", () => {
+  openCart.tabletsEl().click();
+  cy.url().should("include", "/category&language=en-gb&path=57");
+  cy.get("#content > h2").should("be.visible").and("contain", "Tablets");
+  cy.get(".product-thumb").should("be.visible");
+  cy.get(
+    "#product-list > div > form > div > div.content > div.description > h4 > a"
+  )
+    .should("be.visible")
+    .and("contain", "Samsung Galaxy Tab 10.1");
+  cy.get(
+    "#product-list > div > form > div > div.content > div.description > div > span.price-new"
+  )
+    .should("be.visible")
+    .and("contain", "$241.99");
+});

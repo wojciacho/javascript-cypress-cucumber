@@ -62,6 +62,10 @@ class openCart {
   registerPasswordEl() {
     return cy.get("#input-password");
   }
+
+  tabletsEl() {
+    return cy.get("#narbar-menu > ul > li:nth-child(4) > a");
+  }
 }
 
 export default new openCart();

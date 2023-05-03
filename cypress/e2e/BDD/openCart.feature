@@ -47,3 +47,8 @@ Scenario: openCart - register user
 Given Open openCart page
 When Verify home page
 Then Register account
+
+Scenario: openCart - verify tablets page
+Given Open openCart page
+When Verify home page
+Then Click on tablets category and verify
