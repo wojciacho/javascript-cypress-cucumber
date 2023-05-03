@@ -104,3 +104,33 @@ Then("Change currency to us dollar and verify", () => {
     .should("be.visible")
     .and("contain", "$");
 });
+
+Then("Add HP laptop to cart", () => {
+  cy.get(
+    "#product-list > div:nth-child(3) > form > div > div.content > div.description > h4 > a"
+  )
+    .should("be.visible")
+    .and("contain", "HP LP3065");
+  cy.get(
+    "#product-list > div:nth-child(3) > form > div > div.content > div.description > div > span.price-new"
+  )
+    .should("be.visible")
+    .and("contain", "$122.00");
+  cy.get(
+    "#product-list > div:nth-child(3) > form > div > div.content > div.button-group > button:nth-child(1)"
+  ).click();
+  cy.url().should("include", "/product&language=en-gb&product_id=47");
+});
+
+Then("Check HP laptop details", () => {
+  cy.get("h1").should("be.visible").and("contain", "HP LP3065");
+  cy.get("h2 > .price-new").should("be.visible").and("contain", "$122.00");
+  cy.get("#input-quantity").clear().type("2");
+});
+
+Then("Add to cart and verify alert", () => {
+  cy.get("#button-cart").click();
+  cy.get(".alert-success")
+    .should("be.visible")
+    .and("contain", "Success: You have added");
+});

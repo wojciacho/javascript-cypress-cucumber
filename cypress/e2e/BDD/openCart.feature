@@ -34,3 +34,11 @@ Scenario: openCart - change currency to us dollar
 Given Open openCart page
 When Verify home page
 Then Change currency to us dollar and verify
+
+Scenario: openCart - add HP laptop to cart and verify alert
+Given Open openCart page
+When Verify home page
+Then Click on desktops and verify
+Then Add HP laptop to cart
+Then Check HP laptop details
+Then Add to cart and verify alert
