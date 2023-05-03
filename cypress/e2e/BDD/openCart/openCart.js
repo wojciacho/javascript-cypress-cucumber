@@ -134,3 +134,18 @@ Then("Add to cart and verify alert", () => {
     .should("be.visible")
     .and("contain", "Success: You have added");
 });
+
+Then("Register account", () => {
+  openCart.myAccountEl().click();
+  openCart.registerEl().click();
+  cy.url().should("include", "/register&language=en-gb");
+  cy.get("#content > h1")
+    .should("be.visible")
+    .and("contain", "Register Account");
+  openCart.registerFirstNameEl().type("Wojciech");
+  openCart.registerLastNameEl().type("Wojciechowski");
+  openCart.registerEmailEl().type("test123@test.com");
+  openCart.registerPasswordEl().type("WOJTAS12345");
+  cy.get('input[name="agree"]').click();
+  cy.get('button[type="submit"]').click();
+});

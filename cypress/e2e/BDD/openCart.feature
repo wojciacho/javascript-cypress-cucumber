@@ -42,3 +42,8 @@ Then Click on desktops and verify
 Then Add HP laptop to cart
 Then Check HP laptop details
 Then Add to cart and verify alert
+
+Scenario: openCart - register user
+Given Open openCart page
+When Verify home page
+Then Register account

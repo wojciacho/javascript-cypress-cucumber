@@ -25,6 +25,12 @@ class openCart {
     );
   }
 
+  registerEl() {
+    return cy.get(
+      "#top > div.container > div.nav.float-end > ul > li:nth-child(2) > div > ul > li:nth-child(1) > a"
+    );
+  }
+
   emailLoginInput() {
     return cy.get("#input-email");
   }
@@ -39,6 +45,22 @@ class openCart {
 
   currencyEl() {
     return cy.get("#form-currency");
+  }
+
+  registerFirstNameEl() {
+    return cy.get("#input-firstname");
+  }
+
+  registerLastNameEl() {
+    return cy.get("#input-lastname");
+  }
+
+  registerEmailEl() {
+    return cy.get("#input-email");
+  }
+
+  registerPasswordEl() {
+    return cy.get("#input-password");
   }
 }
 
