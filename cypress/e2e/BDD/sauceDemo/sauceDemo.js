@@ -111,3 +111,17 @@ Then("Select price high to low and assert", () => {
     "div:nth-child(2) > div.inventory_item_description > div.pricebar > div"
   ).should("contain", "$29.99");
 });
+
+When("Login user incorrectly", () => {
+  cy.sauceDemoLogin("Wojciacho", "wojtas");
+});
+
+Then("Verify error message", () => {
+  cy.get(".error-message-container")
+    .should("be.visible")
+    .and(
+      "contain",
+      "Epic sadface: Username and password do not match any user in this service"
+    );
+  cy.get(".input_error").should("have.css", "border-bottom-color");
+});

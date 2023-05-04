@@ -38,3 +38,8 @@ When Filling login details
 And Select price low to high and assert
 And Select price high to low and assert
 Then Logout and assert home page
+
+Scenario: sauceDemo - incorrectly user login
+Given Opening saucedemo page
+When Login user incorrectly
+Then Verify error message
