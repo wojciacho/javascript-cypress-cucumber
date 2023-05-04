@@ -138,3 +138,10 @@ Then("Check footer", () => {
   cy.get(".social_facebook").should("be.visible");
   cy.get(".social_linkedin").should("be.visible");
 });
+
+Then("Restart app state", () => {
+  cy.get(".shopping_cart_badge").should("have.text", "2");
+  sauceDemo.burgerMenu().click();
+  cy.get("#reset_sidebar_link").click();
+  cy.get(".shopping_cart_badge").should("not.exist");
+});

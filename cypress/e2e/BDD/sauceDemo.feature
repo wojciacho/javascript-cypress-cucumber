@@ -48,3 +48,9 @@ Scenario: sauceDemo - check footer
 Given Opening saucedemo page
 When Filling login details
 Then Check footer
+
+Scenario: sauceDemo - reset app state
+Given Opening saucedemo page
+When Filling login details
+And Add two products to cart
+Then Restart app state
