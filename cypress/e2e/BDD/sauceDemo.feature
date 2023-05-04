@@ -43,3 +43,8 @@ Scenario: sauceDemo - incorrectly user login
 Given Opening saucedemo page
 When Login user incorrectly
 Then Verify error message
+
+Scenario: sauceDemo - check footer
+Given Opening saucedemo page
+When Filling login details
+Then Check footer

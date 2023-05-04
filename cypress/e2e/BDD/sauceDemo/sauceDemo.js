@@ -125,3 +125,16 @@ Then("Verify error message", () => {
     );
   cy.get(".input_error").should("have.css", "border-bottom-color");
 });
+
+Then("Check footer", () => {
+  cy.get(".footer").should("be.visible");
+  cy.get(".footer_copy")
+    .should("be.visible")
+    .and(
+      "contain",
+      "Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy"
+    );
+  cy.get(".social_twitter").should("be.visible");
+  cy.get(".social_facebook").should("be.visible");
+  cy.get(".social_linkedin").should("be.visible");
+});
