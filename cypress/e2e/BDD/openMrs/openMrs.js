@@ -28,3 +28,19 @@ Then("Verify home page", () => {
     .and("contain", "Registration Desk");
   cy.get("#loginButton").should("be.visible");
 });
+
+Then("Login user correctly", () => {
+  openMrs.usernameEl().type("admin");
+  openMrs.passwordEl().type("Admin123");
+  cy.get("#sessionLocation > li:nth-child(2)").click();
+  openMrs.loginButton().click();
+  cy.get("a > img").click();
+  cy.url().should("include", "/referenceapplication/home.page");
+  cy.get("h4")
+    .should("be.visible")
+    .and("contain", "Logged in as Super User (admin) at Isolation Ward.");
+});
+
+Then("Logout user", () => {
+  cy.get(".logout > a").click();
+});
