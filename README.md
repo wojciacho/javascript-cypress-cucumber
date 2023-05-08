@@ -11,5 +11,5 @@
 * https://automationexercise.com,
 * https://www.demoblaze.com,
 * https://katalon-demo-cura.herokuapp.com,
-* https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login,
-* https://demo.opencart.com/index.php?route=common/home&language=en-gb
+* https://www.globalsqa.com/angularJs-protractor/BankingProject,
+* https://demo.openmrs.org/openmrs/login.htm
