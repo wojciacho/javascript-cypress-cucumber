@@ -121,3 +121,14 @@ Then("Go to home page", () => {
     .should("be.visible")
     .and("contain", "574 computers found");
 });
+
+Then("Click ACE computer and delete", () => {
+  cy.get(
+    "#main > table > tbody > tr:nth-child(1) > td:nth-child(1) > a"
+  ).click();
+  cy.url().should("contain", "/computers/381");
+  cy.get(".btn.danger").click({force:true});
+  cy.get(".alert-message")
+    .should("be.visible")
+    .and("contain", "Computer ACE has been deleted");
+});

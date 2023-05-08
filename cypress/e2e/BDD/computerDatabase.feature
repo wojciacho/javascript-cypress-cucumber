@@ -46,3 +46,8 @@ Given Opening computerDatabase page
 When Page loads check assets when page loads
 And Add new computer to base without name
 Then Go to home page
+
+Scenario: computerDatabase - delete ACE computer
+Given Opening computerDatabase page
+When Page loads check assets when page loads
+Then Click ACE computer and delete
